@@ -1,3 +1,1 @@
-# SolubilityModeling.jl
-
-Documentation for SolubilityModeling.jl
+https://github.com/RGambarini/SolubilityModeling.jl
