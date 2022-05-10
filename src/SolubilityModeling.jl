@@ -1,5 +1,7 @@
 module SolubilityModeling
 
-greet() = print("Hello World!")
+export plusTwo
 
-end # module
+plusTwo(x) = return x+2
+
+end # end module
