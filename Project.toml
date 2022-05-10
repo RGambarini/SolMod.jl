@@ -1,0 +1,11 @@
+name = "SolubilityModeling"
+uuid = "38c5d551-45d3-42b3-94f5-dac278fd4b95"
+authors = ["rgp11 "]
+version = "0.1.0"
+
+[deps]
+DataFrames = "a93c6f00-e57d-5684-b7b6-d8193f3e46c0"
+PyCall = "438e738f-606a-5dbb-bf0a-cddfbfd45ab0"
+PyPlot = "d330b81b-6aea-500a-939a-2ce795aea3ee"
+Roots = "f2b01f46-fcfa-551c-844a-d8ac1e96c665"
+XLSX = "fdbf4ff8-1666-58a4-91e7-1b58723a45e0"
