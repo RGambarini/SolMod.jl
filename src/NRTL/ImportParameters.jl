@@ -4,6 +4,8 @@ function NRTL_importParameters(filepath::String, components::Int64)
 
     params = Dict()
 
+    # fusΔH, Tm
+
     params["Solute"] = Matrix(DataFrame(XLSX.readtable(filepath, "Solute")...))
 
     xf = XLSX.readxlsx(filepath)
@@ -26,6 +28,8 @@ function NRTL_importParameters(filepath::String, components::Int64)
   elseif components == 3
 
     params = Dict()
+
+    # fusΔH, Tm, fusΔH_rac, Tm_rac
 
     params["Solute"] = Matrix(DataFrame(XLSX.readtable(filepath, "Solute")...))
 
