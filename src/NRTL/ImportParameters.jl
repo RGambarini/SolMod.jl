@@ -4,10 +4,7 @@ function NRTL_importParameters(filepath::String, components::Int64)
 
     params = Dict()
 
-    fusΔH = Matrix(DataFrame(XLSX.readtable(filepath, "Solute")...))[1]
-    Tm = Matrix(DataFrame(XLSX.readtable(filepath, "Solute")...))[2]
-
-    params["Solute"] = fusΔH, Tm
+    params["Solute"] = Matrix(DataFrame(XLSX.readtable(filepath, "Solute")...))
 
     xf = XLSX.readxlsx(filepath)
     solvents = XLSX.sheetnames(xf)[2:end]
@@ -30,12 +27,7 @@ function NRTL_importParameters(filepath::String, components::Int64)
 
     params = Dict()
 
-    fusΔH = Matrix(DataFrame(XLSX.readtable(filepath, "Solute")...))[1]
-    Tm = Matrix(DataFrame(XLSX.readtable(filepath, "Solute")...))[2]
-    fusΔH_rac = Matrix(DataFrame(XLSX.readtable(filepath, "Solute")...))[3]
-    Tm_rac = Matrix(DataFrame(XLSX.readtable(filepath, "Solute")...))[4]
-
-    params["Solute"] = fusΔH, Tm, fusΔH_rac, Tm_rac
+    params["Solute"] = Matrix(DataFrame(XLSX.readtable(filepath, "Solute")...))
 
     xf = XLSX.readxlsx(filepath)
     solvents = XLSX.sheetnames(xf)[2:end]
