@@ -1,4 +1,4 @@
-function NRTL_ternaryPhase(params::Dict, solvent::String, Tx::Float64; x_step::Float64 = 0.001)
+function NRTL_ternaryPhase(params::Dict, solvent::String, Tx; x_step::Float64 = 0.001)
     
     x_1v = []
     x_2v = []
