@@ -1,4 +1,4 @@
-function NRTL_model(params::Dict, components::Int64;
+function NRTL_solubility(params::Dict, components::Int64;
     solvents::Vector = deleteat!(collect(keys(params)), 
     findall(x->x=="Solute", collect(keys(params)))), x_start::Float64 = 0.001, 
     x_finish::Float64 = 0.999, x_step::Float64 = 0.001, x_rac::Float64 = 0.0, 

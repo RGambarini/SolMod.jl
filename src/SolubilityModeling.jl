@@ -8,7 +8,6 @@ using XLSX
 include("NRTL/NRTL.jl")
 
 export NRTL_model
-export NRTL_table
 export NRTL_exportModel
 export NRTL_importParameters
 export NRTL_exportParameters

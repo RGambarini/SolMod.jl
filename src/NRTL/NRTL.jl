@@ -1,8 +1,7 @@
 # NRTL
 
-include("Model.jl")
+include("Solubility.jl")
 include("ExportModel.jl")
-include("Table.jl")
 include("ImportParameters.jl")
 include("ExportParameters.jl")
 include("ImportExperimentalData.jl")
