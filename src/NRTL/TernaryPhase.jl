@@ -14,7 +14,7 @@ function NRTL_ternaryPhase(params::Dict, solvent::String, Tx; x_step::Float64 = 
     𝜏 = g/(T*R)
     G = (ℯ*ones(size(⍺))).^(-1*⍺.*𝜏)
     nlnγi = sum(xi[j]*𝜏[j, 1]*G[j, 1] for j in J)/sum(xi[k]*G[k, 1] for k in K)+sum(xi[j]*G[1, j]/sum(xi[k]*G[k, j] for k in K)*(𝜏[1, j]-(sum(xi[m]*𝜏[m, j]*G[m, j] for m in M)/sum(xi[k]*G[k, j] for k in K))) for j in J)
-    nzi = log(xi[1])+nlnγi-(fusΔH/R)*(1/T-1/Tm)
+    nzi = nlnγi+log(xi[1])-(fusΔH/R)*(1/T-1/Tm)
     nzi^2
 
   end
@@ -23,8 +23,8 @@ function NRTL_ternaryPhase(params::Dict, solvent::String, Tx; x_step::Float64 = 
       
     𝜏 = g/(T*R)
     G = (ℯ*ones(size(⍺))).^(-1*⍺.*𝜏)
-    nlnγi = sum(xi[j]*𝜏[j, 2]*G[j, 2] for j in J)/sum(xi[k]*G[k, 2] for k in K)+sum(xi[j]*G[2, j]/sum(xi[k]*G[k, j] for k in K)*(𝜏[2, j]-(sum(xi[m]*𝜏[m, j]*G[m, j] for m in M)/sum(xi[k]*G[k, j] for k in K))) for j in J)
-    nzi = log(xi[2])+nlnγi-(fusΔH/R)*(1/T-1/Tm)
+    nlnγj = sum(xi[j]*𝜏[j, 2]*G[j, 2] for j in J)/sum(xi[k]*G[k, 2] for k in K)+sum(xi[j]*G[2, j]/sum(xi[k]*G[k, j] for k in K)*(𝜏[2, j]-(sum(xi[m]*𝜏[m, j]*G[m, j] for m in M)/sum(xi[k]*G[k, j] for k in K))) for j in J)
+    nzi = log(xi[2])+nlnγj-(fusΔH/R)*(1/T-1/Tm)
     nzi^2
 
   end
@@ -66,23 +66,23 @@ function NRTL_ternaryPhase(params::Dict, solvent::String, Tx; x_step::Float64 = 
 
             if i + j + k == 1
 
-              if round(ei([i, j, k]), digits = 3) == 0 && i/j > 1
+              if round(ei([i, j, k]), digits = 4) == 0 && i/j > 1
 
                 append!(x_1v, i); append!(x_2v, j); append!(x_3v, k)
 
               end
 
-              if round(ej([i, j, k]), digits = 3) == 0 && i/j < 1
+              if round(ej([i, j, k]), digits = 4) == 0 && i/j < 1
 
                 append!(x_1v, i); append!(x_2v, j); append!(x_3v, k)
 
               end
 
-              if round(r([i, j, k], [i, j, k]), digits = 3) == 0
+              #if round(r([i, j, k], [i, j, k]), digits = 2) == 0
 
-                append!(x_1v, i); append!(x_2v, j); append!(x_3v, k)
+                #append!(x_1v, i); append!(x_2v, j); append!(x_3v, k)
 
-              end
+              #end
 
             end
         end

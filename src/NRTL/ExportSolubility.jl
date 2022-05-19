@@ -1,4 +1,4 @@
-function NRTL_exportModel(model, outputfile::String; 
+function NRTL_exportSolubility(model, outputfile::String; 
     solvents::Vector = collect(keys(model)))
   
     XLSX.writetable(outputfile)

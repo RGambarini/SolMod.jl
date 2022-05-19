@@ -1,11 +1,11 @@
-function NRTL_importModel(filepath::String)
+function NRTL_importTernaryPhase(filepath::String)
   
     xf = XLSX.readxlsx(filepath)
-    solvent = XLSX.sheetnames(xf)[1]
+    sheet = XLSX.sheetnames(xf)[1]
   
-    x_1 = Matrix(DataFrame(XLSX.readtable(filepath, solvent)...))[:,1]
-    x_2 = Matrix(DataFrame(XLSX.readtable(filepath, solvent)...))[:,2]
-    x_3 = Matrix(DataFrame(XLSX.readtable(filepath, solvent)...))[:,3]
+    x_1 = Matrix(DataFrame(XLSX.readtable(filepath, sheet)...))[:,1]
+    x_2 = Matrix(DataFrame(XLSX.readtable(filepath, sheet)...))[:,2]
+    x_3 = Matrix(DataFrame(XLSX.readtable(filepath, sheet)...))[:,3]
 
     model = zeros(length(x_1), 3)
 

@@ -7,9 +7,12 @@ using XLSX
 
 include("NRTL/NRTL.jl")
 
-export NRTL_model
+export NRTL_solubility
+export NRTL_importSolubility
+export NRTL_exportSolubility
 export NRTL_ternaryPhase
-export NRTL_exportModel
+export NRTL_importTernaryPhase
+export NRTL_exportTernaryPhase
 export NRTL_importParameters
 export NRTL_exportParameters
 export NRTL_importExperimentalData
