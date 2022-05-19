@@ -43,11 +43,11 @@ for i in 0.001:x_step:0.999
 
           if i + j + k == 1
 
-            if round(ei([i, j, k]), digits = 3) == 0 && i/j > 1
+            if round(ei([i, j, k]), digits = 2) == 0 && i/j > 1
               append!(x_1v, i); append!(x_2v, j); append!(x_3v, k)
             end
 
-            if round(ej([i, j, k]), digits = 3) == 0 && i/j < 1
+            if round(ej([i, j, k]), digits = 2) == 0 && i/j < 1
               append!(x_1v, i); append!(x_2v, j); append!(x_3v, k)
             end
 
