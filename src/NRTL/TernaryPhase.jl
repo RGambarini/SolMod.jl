@@ -92,7 +92,7 @@ xrow = []; row = []
   min = row[findmin(row[1:end, 1])[2], 1:end]
   maxi = row[findmax(row[1:end, 1])[2], 1:end]
 
-  println("Eutectics are at composition: ")
+  println("Eutectic points of isotherm "*string(Tx)*"K are at composition: ")
   println("")
   println("x1: "*string(min[1])*" x2: "*string(min[2])*" x3: "*string(min[3]))
   println("x1: "*string(maxi[1])*" x2: "*string(maxi[2])*" x3: "*string(maxi[3]))
