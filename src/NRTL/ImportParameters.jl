@@ -1,5 +1,23 @@
 function NRTL_importParameters(filepath::String, components::Int64)
 
+  # Inputs: 
+  # 1. filepath = String that includes the filepath of the xlsx 
+  # file that we are intending to import
+  # 2. components = An integer that should be either a 2 or a 3. A 2 component
+  # system would be used to model a system made up of a target molecule and its
+  # solvent. A 3 component system would be used to model a system with an R and
+  # S enantiomer along with its solvent
+
+  # Using the package XLSX we import the data from the xlsx file as a dataframe to 
+  # a dictionary where the keys are the solute and the solvents used. The first 
+  # sheet contains the calorimetric data of the molecule and will be added as a value 
+  # to the solute key. When 3 components are specified, aditional calorimetric data 
+  # for the racemic product will be added as the values [3], and [4] If 2 components 
+  # are specified, the  2x2 matrix of the interaction parameters of the molecule and 
+  # the solvent will be imported as a value to their respective solvent keys. If 3 
+  # components are specified, the  3x3 matrix of the interaction parameters of the 
+  # molecule and the solvent will be imported as a value to their respective solvent keys
+
   if components == 2
 
     params = Dict()

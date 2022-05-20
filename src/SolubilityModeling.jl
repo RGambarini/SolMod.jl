@@ -15,8 +15,10 @@ export NRTL_importTernaryPhase
 export NRTL_exportTernaryPhase
 export NRTL_importParameters
 export NRTL_exportParameters
-export NRTL_importExperimentalData
-export NRTL_exportExperimentalData
+export NRTL_importExperimentalSolubility
+export NRTL_exportExperimentalSolubility
+export NRTL_importExperimentalTernaryPhase
+export NRTL_exportExperimentalTernaryPhase
 
 # NRTL-SAC
 #include("NRTL-SAC/NRTL-SAC.jl")

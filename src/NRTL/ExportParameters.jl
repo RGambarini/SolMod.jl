@@ -1,6 +1,29 @@
 function NRTL_exportParameters(params, components::Int64, outputfile::String; 
     sol::Vector = deleteat!(collect(keys(params)), 
     findall(x->x=="Solute", collect(keys(params)))))
+
+    # Inputs:
+    # 1. params = Dictionary that includes the keys for the solute (first sheet)
+    # and the solvents used. The values correspond to the parameters used in the
+    # model.
+    # 2. components = An integer that should be either a 2 or a 3. A 2 component
+    # system would be used to model a system made up of a target molecule and its
+    # solvent. A 3 component system would be used to model a system with an R and
+    # S enantiomer along with its solvent
+    # 3. outputfile = String that includes the filepath of the xlsx file that we
+    # are intending to export 
+
+    # Optional:
+    # 1. sol = Vector that includes a list of strings that are the solvents used
+    # for the modeling. Automatically loads the keys of the params dictionary
+    
+    # Using the package XLSX we export the dictionary as a dataframe to 
+    # a sheet of the xlsx file for every solvent. The first sheet will always contain
+    # the calorimetric data of the molecule. If 2 components are specified,
+    # the sheet will contain a 2x2 matrix of the interaction parameters of the 
+    # molecule and the solvent. If 3 components are specified, the sheet will
+    # contain a 3x3 matrix of the interaction parameters of the R and S enantiomer
+    # and the solvent
   
     NRTLparams = ["⍺", "g"]
     fusΔH = params["Solute"][1]

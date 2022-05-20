@@ -1,4 +1,11 @@
 function NRTL_importSolubility(filepath::String)
+
+  # Inputs: 
+  # 1. filepath = String that includes the filepath of the xlsx 
+  # file that we are intending to import
+
+  # Using the package XLSX we import the data from the xlsx file as a dataframe to 
+  # an array that corresponds to the molar composition and the calculated temperature
   
     xf = XLSX.readxlsx(filepath)
     solvent = XLSX.sheetnames(xf)[1]
