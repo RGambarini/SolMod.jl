@@ -9,3 +9,6 @@ Polynomials = "f27b6e38-b328-58d1-80ce-0feddd5e7a45"
 Roots = "f2b01f46-fcfa-551c-844a-d8ac1e96c665"
 TernaryPlots = "1f5e811d-5acb-4dfc-9a45-b3a27d369aae"
 XLSX = "fdbf4ff8-1666-58a4-91e7-1b58723a45e0"
+
+[compat]
+TernaryPlots = "0.1"
