@@ -1,4 +1,5 @@
-function NRTL_ternaryPhase(params::Dict, solvent::String, Tx; x_step::Float64 = 0.001, pp = true)
+function NRTL_ternaryPhase(params::Dict, solvent::String, Tx; x_step::Float64 = 0.001, 
+  pp = true, round1::Int64 = 3, round2::Int64 = 3, round3::Int64 = 1)
   x_1v = []; x_2v = []; x_3v = []
   x_1r = []; x_2r = []; x_3r = []
 
@@ -13,6 +14,9 @@ function NRTL_ternaryPhase(params::Dict, solvent::String, Tx; x_step::Float64 = 
 # 1. x_step = Step size of the molar composition increments
 # 2. pp = Post-processing of the output array will be done to remove any points beyond the
 # eutectic points
+# 3. round# = This affects the sensitivity of the solubility equation. This rounds to the
+# specified number of digits after the decimal place. Automatically set to 3 for the
+# solubility of the enantiomers and 1 for the solubility of the racemate
 
 # To determine the activity coefficient of the system at the specified composition we
 # use the NRTL activity coefficient model:
@@ -29,12 +33,12 @@ function NRTL_ternaryPhase(params::Dict, solvent::String, Tx; x_step::Float64 = 
 
 # Solubility is modeled acording to the Schrödenberg Van Laar equation:
 
-# log(x_i γ_i) = (fusΔH / R) (1 / T - 1 / Tm)
+# log(x_i γ_i) = (fusΔH / R) (1 / Tm - 1 / T)
 
 # Solubility of the racemate is modeled acording to the Prigogine and 
 # Defay equation:
 
-# log(4 γi γj x_i x_j) = ( 2 fusΔH_rac/R ) ( 1/ T-1 / Tm_rac )
+# log(4 γi γj x_i x_j) = ( 2 fusΔH_rac/R ) ( 1 / Tm_rac - 1 / T )
 
 # Which details that the solubility of the racemate can be easily computed with the respective
 # calorimetric properties, where fusΔH_rac is the enthalpy of fusion and Tm is the melting
@@ -63,7 +67,7 @@ function NRTL_ternaryPhase(params::Dict, solvent::String, Tx; x_step::Float64 = 
     𝜏 = g/(T*R); G = (ℯ*ones(size(⍺))).^(-1*⍺.*𝜏)
     lnγi = sum(xi[j]*𝜏[j, 1]*G[j, 1] for j in J)/sum(xi[k]*G[k, 1] for k in K)+sum(xi[j]*G[1, j]/sum(xi[k]*G[k, j] for k in K)*(𝜏[1, j]-(sum(xi[m]*𝜏[m, j]*G[m, j] for m in M)/sum(xi[k]*G[k, j] for k in K))) for j in J)
     #lnγi = 0
-    nzi = (fusΔH/R)*(1/T-1/Tm)-lnγi-log(xi[1])
+    nzi = (fusΔH/R)*(1/Tm-1/T)-lnγi-log(xi[1])
     nzi^2
   end
 
@@ -71,16 +75,16 @@ function NRTL_ternaryPhase(params::Dict, solvent::String, Tx; x_step::Float64 = 
     𝜏 = g/(T*R); G = (ℯ*ones(size(⍺))).^(-1*⍺.*𝜏)
     lnγj = sum(xi[j]*𝜏[j, 2]*G[j, 2] for j in J)/sum(xi[k]*G[k, 2] for k in K)+sum(xi[j]*G[2, j]/sum(xi[k]*G[k, j] for k in K)*(𝜏[2, j]-(sum(xi[m]*𝜏[m, j]*G[m, j] for m in M)/sum(xi[k]*G[k, j] for k in K))) for j in J)
     #lnγj = 0
-    nzi = (fusΔH/R)*(1/T-1/Tm)-lnγj-log(xi[2])
+    nzi = (fusΔH/R)*(1/Tm-1/T)-lnγj-log(xi[2])
     nzi^2
   end
 
   function NRTLr(xi, xj, T)
     𝜏 = g/(T*R); G = (ℯ*ones(size(⍺))).^(-1*⍺.*𝜏)
-    #lnγi = sum(xi[j]*𝜏[j, 1]*G[j, 1] for j in J)/sum(xi[k]*G[k, 1] for k in K)+sum(xi[j]*G[1, j]/sum(xi[k]*G[k, j] for k in K)*(𝜏[1, j]-(sum(xi[m]*𝜏[m, j]*G[m, j] for m in M)/sum(xi[k]*G[k, j] for k in K))) for j in J)
-    #lnγj = sum(xi[j]*𝜏[j, 2]*G[j, 2] for j in J)/sum(xi[k]*G[k, 2] for k in K)+sum(xi[j]*G[2, j]/sum(xi[k]*G[k, j] for k in K)*(𝜏[2, j]-(sum(xi[m]*𝜏[m, j]*G[m, j] for m in M)/sum(xi[k]*G[k, j] for k in K))) for j in J)
-    lnγi = 0; lnγj = 0
-    nzi = (2*fusΔH_rac/R)*(1/T-1/Tm_rac) - (log(4) + lnγi + lnγj + log(xi[1]) + log(xj[2]))
+    lnγi = sum(xi[j]*𝜏[j, 1]*G[j, 1] for j in J)/sum(xi[k]*G[k, 1] for k in K)+sum(xi[j]*G[1, j]/sum(xi[k]*G[k, j] for k in K)*(𝜏[1, j]-(sum(xi[m]*𝜏[m, j]*G[m, j] for m in M)/sum(xi[k]*G[k, j] for k in K))) for j in J)
+    lnγj = sum(xj[j]*𝜏[j, 2]*G[j, 2] for j in J)/sum(xj[k]*G[k, 2] for k in K)+sum(xj[j]*G[2, j]/sum(xj[k]*G[k, j] for k in K)*(𝜏[2, j]-(sum(xj[m]*𝜏[m, j]*G[m, j] for m in M)/sum(xj[k]*G[k, j] for k in K))) for j in J)
+    #lnγi = 0; lnγj = 0
+    nzi = (2*fusΔH_rac/R)*(1/Tm_rac-1/T) - (log(4) + lnγi + lnγj + log(xi[1]) + log(xj[2]))
     nzi^2
   end
 
@@ -94,15 +98,15 @@ function NRTL_ternaryPhase(params::Dict, solvent::String, Tx; x_step::Float64 = 
 
             if i + j + k == 1
 
-              if round(ei([i, j, k]), digits = 1) == 0 && i/j > 1
+              if round(ei([i, j, k]), digits = round1) == 0 && i/j > 1
                 append!(x_1v, i); append!(x_2v, j); append!(x_3v, k)
               end
 
-              if round(ej([i, j, k]), digits = 1) == 0 && i/j < 1
+              if round(ej([i, j, k]), digits = round2) == 0 && i/j < 1
                 append!(x_1v, i); append!(x_2v, j); append!(x_3v, k)
               end
 
-              if round(r([i, j, k], [i, j, k]), digits = 1) == 0
+              if round(r([i, j, k], [i, j, k]), digits = round3) == 0
                 append!(x_1r, i); append!(x_2r, j); append!(x_3r, k)
               end
 
