@@ -1,4 +1,4 @@
-function NRTL_importTernaryPhase(filepath::String)
+function importTernaryPhase(filepath::String)
   
   # Inputs: 
   # 1. filepath = String that includes the filepath of the xlsx 

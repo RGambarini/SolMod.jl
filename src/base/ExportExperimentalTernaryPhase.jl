@@ -1,4 +1,4 @@
-function NRTL_exportExperimentalTernaryPhase(exp, outputfile::String; 
+function exportExperimentalTernaryPhase(exp, outputfile::String; 
     temperatures::Vector = collect(keys(exp)))
 
     # Inputs: 

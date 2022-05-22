@@ -1,4 +1,4 @@
-function NRTL_importExperimentalSolubility(filepath::String)
+function importExperimentalSolubility(filepath::String)
 
   # Inputs: 
   # 1. filepath = String that includes the filepath of the xlsx 

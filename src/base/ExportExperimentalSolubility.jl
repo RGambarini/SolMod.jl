@@ -1,4 +1,4 @@
-function NRTL_exportExperimentalSolubility(exp, outputfile::String; 
+function exportExperimentalSolubility(exp, outputfile::String; 
     solvents::Vector = collect(keys(exp)))
 
     # Inputs: 

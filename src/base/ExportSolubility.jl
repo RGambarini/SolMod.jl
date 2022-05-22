@@ -1,4 +1,4 @@
-function NRTL_exportSolubility(model, outputfile::String; 
+function exportSolubility(model, outputfile::String; 
     solvents::Vector = collect(keys(model)))
   
     # Inputs:

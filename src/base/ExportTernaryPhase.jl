@@ -1,4 +1,4 @@
-function NRTL_exportTernaryPhase(model, outputfile::String)
+function exportTernaryPhase(model, outputfile::String)
   
     # Inputs:
     # 1. model = Array that includes the molar composition of the R enantiomer,
