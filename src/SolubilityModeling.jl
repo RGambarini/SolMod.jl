@@ -29,10 +29,10 @@ export NRTL_exportParameters
 # NRTL-SAC
 #include("NRTL-SAC/NRTL-SAC.jl")
 
-#export NRTL-SAC_solubility
-#export NRTL-SAC_ternaryPhase
-#export NRTL-SAC_importParameters
-#export NRTL-SAC_exportParameters
+#export NRTL_SAC_solubility
+#export NRTL_SAC_ternaryPhase
+#export NRTL_SAC_importParameters
+#export NRTL_SAC_exportParameters
 
 # UNIQUAC
 #include("UNIQUAC/UNIQUAC.jl")

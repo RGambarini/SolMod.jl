@@ -1,4 +1,4 @@
-function NRTL-SAC_ternaryPhase(params::Dict, solvent::String, Tx; x_step::Float64 = 0.001, 
+function NRTL_SAC_ternaryPhase(params::Dict, solvent::String, Tx; x_step::Float64 = 0.001, 
   pp = true, round1::Int64 = 3, round2::Int64 = 3, round3::Int64 = 1)
   x_1v = []; x_2v = []; x_3v = []
   x_1r = []; x_2r = []; x_3r = []

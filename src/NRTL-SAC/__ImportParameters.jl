@@ -1,4 +1,4 @@
-function NRTL-SAC_importParameters(filepath::String, components::Int64)
+function NRTL_SAC_importParameters(filepath::String, components::Int64)
 
   # Inputs: 
   # 1. filepath = String that includes the filepath of the xlsx 
