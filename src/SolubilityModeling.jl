@@ -1,6 +1,5 @@
 module SolubilityModeling
 using DataFrames
-using Roots
 using XLSX
 
 # base
