@@ -2,7 +2,7 @@ function NRTL_solubility(params::Dict, components::Int64;
     solvents::Vector = deleteat!(collect(keys(params)), 
     findall(x->x=="Solute", collect(keys(params)))), x_start::Float64 = 0.001, 
     x_finish::Float64 = 0.999, x_step::Float64 = 0.001, x_rac::Float64 = 0.0, 
-    T_start::Int64 = 200, T_finish::Int64 = 400, T_guess::Int64 = T_finish)
+    T_start::Int64 = 200, T_finish::Int64 = 400, round1::Int64 = 3)
 
   # Inputs: 
   # 1. params = Dictionary that includes the solvents used as keys and the respective
@@ -24,8 +24,8 @@ function NRTL_solubility(params::Dict, components::Int64;
   # 5. x_rac = Molar composition of the enantiomer complementary to the target molecule
   # 6. T_start = Starting temperature
   # 7. T_finish = Last temperature
-  # 8. T_guess = Initial guess of the temperature that corresponds the solubility point
-  # of the target molecule at the specified molar composition
+  # 3. round# = This affects the sensitivity of the solubility equation. This rounds to the
+  # specified number of digits after the decimal place. Automatically set to 3
 
   # To determine the activity coefficient of the system at the specified composition we
   # use the NRTL activity coefficient model:
@@ -88,37 +88,50 @@ function NRTL_solubility(params::Dict, components::Int64;
   
       end
   
-      solub = Dict(); ; R = 8.314
+      solub = Dict(); ; R = 8.314; Tn = []
       fusΔH = params["Solute"][1]; Tm = params["Solute"][2]
       
-      T = range(T_start, T_finish, length = length(xi[:,1]))  
+      T = range(T_start, T_finish, step = 0.01)  
   
       for l in range(1, length(solvents))
   
         Tc = []; ⍺ = params[solvents[l]]["⍺"]; g = params[solvents[l]]["g"]
         J = 1:length(xi[1, :]); K = 1:length(xi[1, :]); M = 1:length(xi[1, :])
   
-        function NRTL(xi, T)
-          𝜏 = g/(T*R)
+        function NRTL(xi, Tx)
+          𝜏 = g/(Tx*R)
           G = (ℯ*ones(size(⍺))).^(-1*⍺.*𝜏)
           nlnγi = sum(xi[j]*𝜏[j, 1]*G[j, 1] for j in J)/sum(xi[k]*G[k, 1] for k in K)+sum(xi[j]*G[1, j]/sum(xi[k]*G[k, j] for k in K)*(𝜏[1, j]-(sum(xi[m]*𝜏[m, j]*G[m, j] for m in M)/sum(xi[k]*G[k, j] for k in K))) for j in J)
-          nzi = log(xi[1])+nlnγi-(fusΔH/R)*(1/T-1/Tm)
+          nzi = log(xi[1])+nlnγi-(fusΔH/R)*(1/Tx-1/Tm)
           nzi^2
   
         end
   
         for n in range(1, length(xi[:, 1]))
   
-          function z(T)
+          function z(Tx)
   
-            NRTL(xi[n, :], T)
+            NRTL(xi[n, :], Tx)
   
           end
+
+          Tn = []
   
-          append!(Tc, fzero(z, T_guess))
+          for i in T
+
+            if round(z(i), digits = round1) == 0
+              append!(Tn, i)
+            end
+          end
+
+          if length(Tn) == 0
+            println("Could not find solubility at "*string(n)*" please check sensitivity")
+          end
+
+          append!(Tc, sum(Tn)/length(Tn))
   
         end
-  
+
         solub[solvents[l]] = xi[:, 1], Tc
   
       end
