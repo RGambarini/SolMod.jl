@@ -1,10 +1,10 @@
 using Documenter
-using SolubilityModeling
+using SolMod
 
 makedocs(
-    sitename = "SolubilityModeling",
+    sitename = "SolMod",
     format = Documenter.HTML(),
-    modules = [SolubilityModeling]
+    modules = [SolMod]
 )
 
 # Documenter can also automatically deploy documentation to gh-pages.

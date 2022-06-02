@@ -1,3 +1,3 @@
-# SolubilityModeling.jl
+# SolMod.jl
 
-Documentation for SolubilityModeling.jl
+Documentation for SolMod.jl

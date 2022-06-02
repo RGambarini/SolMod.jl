@@ -1,4 +1,4 @@
-module SolubilityModeling
+module SolMod
 using DataFrames
 using XLSX
 
