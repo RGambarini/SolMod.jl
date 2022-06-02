@@ -76,7 +76,7 @@ function NRTL_solubility(params::Dict, components::Int64;
       if components == 2
   
         xi = hcat(range(x_start, x_finish, step = x_step), 
-        range(x_finish, x_start, step = -x_step))
+        range(1-x_start, 1-x_finish, step = -x_step))
   
       elseif components == 3
   

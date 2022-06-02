@@ -14,16 +14,16 @@ export importExperimentalSolubility
 export exportExperimentalSolubility
 export importExperimentalTernaryPhase
 export exportExperimentalTernaryPhase
-
+export solubilityPoint
+export ternaryPhase
 
 # NRTL
 
 include("NRTL/NRTL.jl")
 
-export NRTL_solubility
-export NRTL_ternaryPhase
 export NRTL_importParameters
 export NRTL_exportParameters
+export NRTL_activityCoefficient
 
 # NRTL-SAC
 #include("NRTL-SAC/NRTL-SAC.jl")

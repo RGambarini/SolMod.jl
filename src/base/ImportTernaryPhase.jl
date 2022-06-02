@@ -7,33 +7,38 @@ function importTernaryPhase(filepath::String)
   # Using the package XLSX we import the data from the xlsx file as a dataframe to 
   # an array that corresponds to the partial molar composition of each component
 
-    xf = XLSX.readxlsx(filepath)
-    sheet = XLSX.sheetnames(xf)[1]
+  model = Dict()
+  xf = XLSX.readxlsx(filepath)
+  sheet = XLSX.sheetnames(xf)
 
-    x_1 = Matrix(DataFrame(XLSX.readtable(filepath, sheet)...))[:,1]
-    x_2 = Matrix(DataFrame(XLSX.readtable(filepath, sheet)...))[:,2]
-    x_3 = Matrix(DataFrame(XLSX.readtable(filepath, sheet)...))[:,3]
+  for t in range(1, length(sheet))
 
-    model = zeros(length(x_1), 3)
+    x_1 = Matrix(DataFrame(XLSX.readtable(filepath, sheet[t])...))[:,1]
+    x_2 = Matrix(DataFrame(XLSX.readtable(filepath, sheet[t])...))[:,2]
+    x_3 = Matrix(DataFrame(XLSX.readtable(filepath, sheet[t])...))[:,3]
+
+    model[sheet[t]] = zeros(length(x_1), 3)
 
     for i in range(1, length(x_3))
 
-    model[i, 3] = x_3[i]
+      model[sheet[t]][i, 3] = x_3[i]
 
     end
 
     for j in range(1, length(x_2))
 
-    model[j, 2] = x_2[j]
+      model[sheet[t]][j, 2] = x_2[j]
 
     end
 
     for k in range(1, length(x_1))
 
-    model[k, 1] = x_1[k]
+      model[sheet[t]][k, 1] = x_1[k]
 
     end
-
-    return model
+    
+  end
+    
+  return model
   
 end
