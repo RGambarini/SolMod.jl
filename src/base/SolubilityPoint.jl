@@ -1,4 +1,4 @@
-function solubilityPoint(params::Dict, solvent::String, lnγix, lnγjx, Tx; R = 8.314, e_1 = true, e_2 = true,
+function solubilityPoint(params::Dict, γix, γjx, Tx; R = 8.314, e_1 = true, e_2 = true,
    fusΔH = params["Solute"][1], Tm = params["Solute"][2], fusΔH_rac = params["Solute"][3],
     Tm_rac = params["Solute"][4], x::Vector = [0.3, 0.2, 0.5])
 
@@ -6,8 +6,8 @@ function solubilityPoint(params::Dict, solvent::String, lnγix, lnγjx, Tx; R = 
     # 1. params = Dictionary that includes the solvents used as keys and the respective
     # interaction parameters. The solute key contains the calorimetric data of the
     # target molecule as an array
-    # 2. lnγix = Activtiy coefficient of the i component at temperature Tx in the x compositon
-    # 3. lnγjx = Activtiy coefficient of the j component at temperature Tx in the x compositon
+    # 2. γix = Activtiy coefficient of the i component at temperature Tx in the x compositon
+    # 3. γjx = Activtiy coefficient of the j component at temperature Tx in the x compositon
     # 4. Tx = Value of the type Int64/Float64 of the temperature used to determine the
     # activity coefficient
 
@@ -38,16 +38,16 @@ function solubilityPoint(params::Dict, solvent::String, lnγix, lnγjx, Tx; R = 
 
     if e_1 == true && e_2 == false
         xi = x[1]
-        nzi = (fusΔH/R)*(1/Tm-1/Tx)-lnγix()-log(xi)
+        nzi = (fusΔH/R)*(1/Tm-1/Tx)-log(γix())-log(xi)
 
     elseif e_1 == false && e_2 == true
         xj = x[2]
-        nzi = (fusΔH/R)*(1/Tm-1/Tx)-lnγjx()-log(xj)
+        nzi = (fusΔH/R)*(1/Tm-1/Tx)-log(γjx())-log(xj)
 
     elseif e_1 == true && e_2 == true
         xi = x[1]
         xj = x[2]
-        nzi = (2*fusΔH_rac/R)*(1/Tm_rac-1/Tx) - (log(4) + lnγix() + lnγjx() + log(xi) + log(xj))
+        nzi = (2*fusΔH_rac/R)*(1/Tm_rac-1/Tx) - (log(4) + log(γix()) + log(γjx()) + log(xi) + log(xj))
     end
 
     nzi^2

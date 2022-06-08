@@ -1,6 +1,7 @@
 module SolMod
 using DataFrames
 using XLSX
+using Roots
 
 # base
 
@@ -16,6 +17,7 @@ export importExperimentalTernaryPhase
 export exportExperimentalTernaryPhase
 export solubilityPoint
 export ternaryPhase
+export ideal_activityCoefficient
 
 # NRTL
 
@@ -23,6 +25,7 @@ include("NRTL/NRTL.jl")
 
 export NRTL_importParameters
 export NRTL_exportParameters
+export NRTL_solubilityCurve
 export NRTL_activityCoefficient
 
 # NRTL-SAC
@@ -34,12 +37,12 @@ export NRTL_activityCoefficient
 #export NRTL_SAC_exportParameters
 
 # UNIQUAC
-#include("UNIQUAC/UNIQUAC.jl")
+include("UNIQUAC/UNIQUAC.jl")
 
-#export UNIQUAC_solubility
-#export UNIQUAC_ternaryPhase
+export UNIQUAC_activityCoefficient
 #export UNIQUAC_importParameters
 #export UNIQUAC_exportParameters
+export UNIQUAC_FredenslundParameters
 
 # UNIQUAC-SAC
 #include("UNIQUAC-SAC/UNIQUAC-SAC.jl")

@@ -1,14 +1,14 @@
-function ternaryPhase(params::Dict, solvent::String, lnγix, lnγjx, Tx; x_step::Float64 = 0.001, 
+function ternaryPhase(params::Dict, γix, γjx, Tx; x_step::Float64 = 0.001, 
     x_start::Float64 = 0.001, x_end::Float64 = 0.999, round1::Int64 = 3, round2::Int64 = 3, 
-    round3::Int64 = 3, pp::Bool = true)
+    round3::Int64 = 3, pp::Bool = true, e::Bool = true)
 
     # Inputs: 
     # 1. params = Dictionary that includes the solvents used as keys and the respective
     # interaction parameters. The solute key contains the calorimetric data of the
     # target molecule as an array
     # 2. solvent = String of the solvent used for the modeling
-    # 3. lnγix = Activtiy coefficient of the i component at temperature Tx in the x compositon
-    # 4. lnγjx = Activtiy coefficient of the j component at temperature Tx in the x compositon
+    # 3. γix = Activtiy coefficient of the i component at temperature Tx in the x compositon
+    # 4. γjx = Activtiy coefficient of the j component at temperature Tx in the x compositon
     # 5. Tx = Value of the type Int64/Float64 of the temperature used to determine the
     # activity coefficient
 
@@ -37,18 +37,22 @@ function ternaryPhase(params::Dict, solvent::String, lnγix, lnγjx, Tx; x_step:
     
             if i + j + k == 1
     
-                if round(solubilityPoint(params, solvent, lnγix, lnγjx, Tx, x = [i, j, k], e_2 = false), 
+                if round(solubilityPoint(params, γix, γjx, Tx, x = [i, j, k], e_2 = false), 
                     digits = round1) == 0 && i/j > 1
                     append!(e_values[1], i); append!(e_values[2], j); append!(e_values[3], k)
                 end
     
-                if round(solubilityPoint(params, solvent, lnγix, lnγjx, Tx, x = [i, j, k], e_1 = false),
+                if round(solubilityPoint(params, γix, γjx, Tx, x = [i, j, k], e_1 = false),
                     digits = round2) == 0 && i/j < 1
                     append!(e_values[1], i); append!(e_values[2], j); append!(e_values[3], k)
                 end
+
+                if e == true
     
-                if round(solubilityPoint(params, solvent, lnγix, lnγjx, Tx, x = [i, j, k]), digits = round3) == 0
-                    append!(r_values[1], i); append!(r_values[2], j); append!(r_values[3], k)
+                    if round(solubilityPoint(params, γix, γjx, Tx, x = [i, j, k]), digits = round3) == 0
+                        append!(r_values[1], i); append!(r_values[2], j); append!(r_values[3], k)
+                    end
+
                 end
     
               end
@@ -59,7 +63,7 @@ function ternaryPhase(params::Dict, solvent::String, lnγix, lnγjx, Tx; x_step:
     model_e = hcat(e_values[1], e_values[2], e_values[3])
     model_r = hcat(r_values[1], r_values[2], r_values[3])
 
-    if pp == true
+    if pp == true && e == true
         
         eutectics = []
 
@@ -78,16 +82,21 @@ function ternaryPhase(params::Dict, solvent::String, lnγix, lnγjx, Tx; x_step:
         min = eutectics[findmin(eutectics[1:end, 1])[2], 1:end]
         maxi = eutectics[findmax(eutectics[1:end, 1])[2], 1:end]
 
-        a = round(abs(100*(min[1]-min[2])/(min[1]+min[2])), digits = 2)
-        b = round(abs(100*(maxi[1]-maxi[2])/(maxi[1]+maxi[2])), digits = 2)
+        a = round(abs(100*(min[2])/(min[1]+min[2])), digits = 2)
+        c = round(abs(100*(min[1])/(min[1]+min[2])), digits = 2)
+        b = round(abs(100*(maxi[2])/(maxi[1]+maxi[2])), digits = 2)
+        d = round(abs(100*(maxi[1])/(maxi[1]+maxi[2])), digits = 2)
 
         println("Eutectic points of isotherm "*string(Tx)*"K are at composition: ")
         println("")
         println("x1: "*string(min[1])*" x2: "*string(min[2])*" x3: "*string(min[3]))
         println("x1: "*string(maxi[1])*" x2: "*string(maxi[2])*" x3: "*string(maxi[3]))
         println("")
-        println("Enantiomeric Excess = "*string(a)*"% - "*string(b)*"%")
+        println("Enantiomeric Excess = ")
         println("")
+        println("Eutectic 1: xi "*string(a)*"% - xj "*string(c)*"%")
+        println("")
+        println("Eutectic 2: xi "*string(b)*"% - xj "*string(d)*"%")
 
         filt_r = []
 
