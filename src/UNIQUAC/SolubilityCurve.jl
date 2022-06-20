@@ -1,4 +1,4 @@
-function NRTL_solubilityCurve(params::Dict, T::Vector, solvent::String; j::Union{Float64, Int64} = 0, 
+function UNIQUAC_solubilityCurve(i_params::Dict, m_params::Matrix, T::Vector, solvent::String; j::Union{Float64, Int64} = 0, 
     guess::Union{Float64, Int64} = 0, components = 3, Ti_step::Union{Float64, Int64} = 1, 
     R::Union{Float64, Int64} = 8.314)
 
@@ -11,11 +11,11 @@ function NRTL_solubilityCurve(params::Dict, T::Vector, solvent::String; j::Union
         for t in Ti
 
             function f(i)
-                γi() = NRTL_activityCoefficient(params, solvent, t)
+                γi() = UNIQUAC_activityCoefficient(i_params, m_params, t, solvent)
                 x  = [i, j, 1-i-j]
 
                 if 1-i-j > 0
-                    solubilityPoint(params, t, x = x, e_2 = false, γi = γi)
+                    solubilityPoint(i_params, t, x = x, e_2 = false, γi = γi)
                 else
                     println("")
                     println("Unfeasable molar composition")
@@ -35,8 +35,6 @@ function NRTL_solubilityCurve(params::Dict, T::Vector, solvent::String; j::Union
                         println("")
                     end
 
-                    guess = rand()
-
                 else
 
                     append!(xi, fzero(f, guess))
@@ -50,18 +48,19 @@ function NRTL_solubilityCurve(params::Dict, T::Vector, solvent::String; j::Union
             end
 
         end
+
         hcat(Ti, xi)
 
     else
 
-        xi = []; fusΔH = params["Solute"][1]; Tm = params["Solute"][2]
+        xi = []; fusΔH = i_params["Solute"][1]; Tm = i_params["Solute"][2]
 
         Ti = T[1]:Ti_step:T[2]
 
         for t in Ti
 
             function f(x)
-                γi() = NRTL_activityCoefficient(params, solvent, t, x = [x, 1-x], components = 2)
+                γi() = UNIQUAC_activityCoefficient(i_params, m_params, t, solvent, x = [x, 1-x], components = 2)
                 nzi = (log(x)+log(γi())-(fusΔH/R)*(1/t-1/Tm))
                 nzi^2
             end
@@ -75,6 +74,7 @@ function NRTL_solubilityCurve(params::Dict, T::Vector, solvent::String; j::Union
                         println("Algorithm failed to converge. Estimate initial point by changing 'guess' or try again")
                         println("")
                     end
+                    guess = rand()
                 else
                     append!(xi, fzero(f, guess))
                 end

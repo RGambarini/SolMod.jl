@@ -1,4 +1,4 @@
-function ternaryPhase(params::Dict, γix, γjx, Tx; x_step::Float64 = 0.001, 
+function ternaryPhase(params::Dict, γi, γj, Tx; x_step::Float64 = 0.001, 
     x_start::Float64 = 0.001, x_end::Float64 = 0.999, round1::Int64 = 3, round2::Int64 = 3, 
     round3::Int64 = 3, pp::Bool = true, e::Bool = true)
 
@@ -36,23 +36,35 @@ function ternaryPhase(params::Dict, γix, γjx, Tx; x_step::Float64 = 0.001,
           for k in x_start:x_step:x_end
     
             if i + j + k == 1
-    
-                if round(solubilityPoint(params, γix, γjx, Tx, x = [i, j, k], e_2 = false), 
-                    digits = round1) == 0 && i/j > 1
-                    append!(e_values[1], i); append!(e_values[2], j); append!(e_values[3], k)
-                end
-    
-                if round(solubilityPoint(params, γix, γjx, Tx, x = [i, j, k], e_1 = false),
-                    digits = round2) == 0 && i/j < 1
-                    append!(e_values[1], i); append!(e_values[2], j); append!(e_values[3], k)
-                end
 
                 if e == true
+
+                    if round(solubilityPoint(params, Tx, x = [i, j, k], e_2 = false, γi = γi, γj = γj), 
+                        digits = round1) == 0 && i/j > 1
+                        append!(e_values[1], i); append!(e_values[2], j); append!(e_values[3], k)
+                    end
+
+                    if round(solubilityPoint(params, Tx, x = [i, j, k], e_1 = false, γi = γi, γj = γj),
+                        digits = round2) == 0 && i/j < 1
+                        append!(e_values[1], i); append!(e_values[2], j); append!(e_values[3], k)
+                    end
     
-                    if round(solubilityPoint(params, γix, γjx, Tx, x = [i, j, k]), digits = round3) == 0
+                    if round(solubilityPoint(params, Tx, x = [i, j, k], γi = γi, γj = γj), digits = round3) == 0
                         append!(r_values[1], i); append!(r_values[2], j); append!(r_values[3], k)
                     end
 
+                else
+
+                    if round(solubilityPoint(params, Tx, x = [i, j, k], e_2 = false, γi = γi, γj = γj), 
+                        digits = round1) == 0 && i/j > 1
+                        append!(e_values[1], i); append!(e_values[2], j); append!(e_values[3], k)
+                    end
+
+                    if round(solubilityPoint(params, Tx, x = [i, j, k], e_1 = false, γi = γi, γj = γj),
+                        digits = round2) == 0 && i/j < 1
+                        append!(e_values[1], i); append!(e_values[2], j); append!(e_values[3], k)
+                    end
+                    
                 end
     
               end
@@ -97,6 +109,7 @@ function ternaryPhase(params::Dict, γix, γjx, Tx; x_step::Float64 = 0.001,
         println("Eutectic 1: xi "*string(a)*"% - xj "*string(c)*"%")
         println("")
         println("Eutectic 2: xi "*string(b)*"% - xj "*string(d)*"%")
+        println("")
 
         filt_r = []
 

@@ -1,13 +1,13 @@
-function UNIQUAC_FredenslundParameters(x1::Vector, x2::Vector, x3::Vector; 
+function UNIQUAC_FredenslundParameters(x::Vector;
     database = pathof(SolMod)[1:end-13]*"examples/Database/UNIQUAC-UNIFAC molecular parameters.xlsx")
 
     # Inputs: 
-    # 1. x1 = 
-    # 2. x2 = 
-    # 3. x3 = 
+    # 1. x = 
   
     # Optional:
     # 1. database = 
+
+    m_params = []
 
     groups = Matrix(DataFrame(XLSX.readtable(database, "Sheet1")...))[1:end, 1]
     R = Matrix(DataFrame(XLSX.readtable(database, "Sheet1")...))[1:end, 2]
@@ -19,9 +19,19 @@ function UNIQUAC_FredenslundParameters(x1::Vector, x2::Vector, x3::Vector;
         group_parameters[groups[i]] = [R[i], Q[i]]
     end
 
-    m_params = [sum(group_parameters[i][1] for i in x1) sum(group_parameters[i][2] for i in x1) sum(group_parameters[i][2] for i in x1)
-                sum(group_parameters[i][1] for i in x2) sum(group_parameters[i][2] for i in x2) sum(group_parameters[i][2] for i in x2)
-                sum(group_parameters[i][1] for i in x3) sum(group_parameters[i][2] for i in x3) sum(group_parameters[i][2] for i in x3)]
+    for n in range(1, length(x))
+
+        if length(m_params) == 0
+            
+            m_params = [sum(group_parameters[i][1] for i in x[n]) sum(group_parameters[i][2] for i in x[n]) sum(group_parameters[i][2] for i in x[n])]
+        
+        else
+            m_params = vcat(m_params, 
+            [sum(group_parameters[i][1] for i in x[n]) sum(group_parameters[i][2] for i in x[n]) sum(group_parameters[i][2] for i in x[n])])
+
+        end
+    
+    end
 
     m_params
 

@@ -1,6 +1,5 @@
-function solubilityPoint(params::Dict, γix, γjx, Tx; R = 8.314, e_1 = true, e_2 = true,
-   fusΔH = params["Solute"][1], Tm = params["Solute"][2], fusΔH_rac = params["Solute"][3],
-    Tm_rac = params["Solute"][4], x::Vector = [0.3, 0.2, 0.5])
+function solubilityPoint(params::Dict, Tx; R = 8.314, e_1 = true, e_2 = true,
+   cal_params = params["Solute"], x::Vector = [0.3, 0.2, 0.5], γi = 1,  γj = 1)
 
     # Inputs: 
     # 1. params = Dictionary that includes the solvents used as keys and the respective
@@ -36,18 +35,21 @@ function solubilityPoint(params::Dict, γix, γjx, Tx; R = 8.314, e_1 = true, e_
     # calorimetric properties, where fusΔH_rac is the enthalpy of fusion and Tm is the melting
     # temperature of the racemate.
 
+    fusΔH = cal_params[1]; Tm = cal_params[2] 
+
     if e_1 == true && e_2 == false
         xi = x[1]
-        nzi = (fusΔH/R)*(1/Tm-1/Tx)-log(γix())-log(xi)
+        nzi = (fusΔH/R)*(1/Tm-1/Tx)-log(γi())-log(xi)
 
     elseif e_1 == false && e_2 == true
         xj = x[2]
-        nzi = (fusΔH/R)*(1/Tm-1/Tx)-log(γjx())-log(xj)
+        nzi = (fusΔH/R)*(1/Tm-1/Tx)-log(γj())-log(xj)
 
     elseif e_1 == true && e_2 == true
+        fusΔH_rac = cal_params[3]; Tm_rac = cal_params[4]
         xi = x[1]
         xj = x[2]
-        nzi = (2*fusΔH_rac/R)*(1/Tm_rac-1/Tx) - (log(4) + log(γix()) + log(γjx()) + log(xi) + log(xj))
+        nzi = (2*fusΔH_rac/R)*(1/Tm_rac-1/Tx) - (log(4) + log(γi()) + log(γj()) + log(xi) + log(xj))
     end
 
     nzi^2

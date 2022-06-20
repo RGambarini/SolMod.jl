@@ -18,7 +18,7 @@ function importExperimentalSolubility(filepath::String)
     Ti = Matrix(DataFrame(XLSX.readtable(filepath, solvents[l])...))[:,1]
     xi = Matrix(DataFrame(XLSX.readtable(filepath, solvents[l])...))[:,2]
 
-    Exp[solvents[l]] = Ti, xi
+    Exp[solvents[l]] = hcat(Ti, xi)
 
   end
 

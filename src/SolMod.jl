@@ -18,6 +18,7 @@ export exportExperimentalTernaryPhase
 export solubilityPoint
 export ternaryPhase
 export ideal_activityCoefficient
+export errorAnalysis
 
 # NRTL
 
@@ -43,6 +44,7 @@ export UNIQUAC_activityCoefficient
 #export UNIQUAC_importParameters
 #export UNIQUAC_exportParameters
 export UNIQUAC_FredenslundParameters
+export UNIQUAC_solubilityCurve
 
 # UNIQUAC-SAC
 #include("UNIQUAC-SAC/UNIQUAC-SAC.jl")
