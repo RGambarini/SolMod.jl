@@ -15,7 +15,7 @@ model = Dict()
 for i in t
 
     γi() = NRTL_activityCoefficient(params, "Diethyl Tartrate", i)
-    γj() = NRTL_activityCoefficient(params, "Diethyl Tartrate", i, e = true)
+    γj() = NRTL_activityCoefficient(params, "Diethyl Tartrate", i, e = false)
     model[i] = ternaryPhase(params, γi, γj, i)
 
 end
@@ -58,8 +58,8 @@ for i in 1:size(Exp["333.15"],1) xf[i,:] = collect(tern2cart(Exp["333.15"][i,:])
 ternary_axes(
     title="Mandelic Acid",
     xguide="R-Enantiomer",
-    yguide="Diethyl Tartrate",
-    zguide="S-Enantiomer",
+    yguide="S-Enantiomer",
+    zguide="Diethyl Tartrate",
 )
 
 p = scatter!(a[:,1],a[:,2], markerstrokewidth=0, label = false,
