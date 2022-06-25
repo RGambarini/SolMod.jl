@@ -2,7 +2,6 @@ module SolMod
 using DataFrames
 using XLSX
 using Roots
-using Unitful
 
 # base
 
