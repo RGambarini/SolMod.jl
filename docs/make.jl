@@ -1,3 +1,4 @@
+push!(LOAD_PATH,"../src/")
 using Documenter
 using SolMod
 
@@ -13,5 +14,5 @@ makedocs(sitename="SolMod",
 # for more information.
 
 deploydocs(
-    repo = "github.com/RGambarini/SolMod"
+    repo = "github.com/RGambarini/SolMod.jl.git"
 )
