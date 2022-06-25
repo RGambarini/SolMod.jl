@@ -1,6 +1,6 @@
 using Test, SolMod
 
-    ideal = ideal_activityCoefficient()
+    ideal = idealActivityCoefficient()
 
 @test ideal == 1
 
@@ -12,8 +12,8 @@ using Test, SolMod
 
     t = 298.15
 
-    γi() = ideal_activityCoefficient()
-    γj() = ideal_activityCoefficient()
+    γi() = idealActivityCoefficient()
+    γj() = idealActivityCoefficient()
 
     solubility_point = solubilityPoint(params, t, γi = γi, γj = γj)
 

@@ -1,32 +1,39 @@
+"""
+
+    ternaryPhase(params::Dict, γi, γj, Tx; x_step::Float64 = 0.001, 
+        x_start::Float64 = 0.001, x_end::Float64 = 0.999, round1::Int64 = 3, round2::Int64 = 3, 
+        round3::Int64 = 3, pp::Bool = true, e::Bool = true)
+
+The function will find the activity coefficient of the R enantiomer and the S enantiomer
+and checks if the Schrödenberg Van Laar equation and the Prigogine and Defay equation 
+is correct. This is done for every molar composition possible. When the solubility equation
+is true, the molar composition is appended to an array. The array is then processed to remove
+solubility points beyond the eutectic points
+
+Inputs: 
+1. params = Dictionary that includes the solvents used as keys and the respective
+interaction parameters. The solute key contains the calorimetric data of the
+target molecule as an array
+2. solvent = String of the solvent used for the modeling
+3. γix = Activtiy coefficient of the i component at temperature Tx in the x compositon
+4. γjx = Activtiy coefficient of the j component at temperature Tx in the x compositon
+5. Tx = Value of the type Int64/Float64 of the temperature used to determine the
+activity coefficient
+
+Optional:
+1. x_step = Step size of the molar composition increments. Automatically set to 0.001
+2. x_start = Start of the iteration of the molar composition. Automatically set to 0.001
+3. x_end = End of the iteration of the molar composition. Automatically set to 0.999
+4. round# = This affects the sensitivity of the solubility equation. This rounds to the
+specified number of digits after the decimal place. Automatically set to 4 for the
+solubility of the enantiomers and 3 for the solubility of the racemate
+5. pp = Boolean that allows the post-processing of the output array will be done to 
+remove any points beyond the eutectic points
+
+"""
 function ternaryPhase(params::Dict, γi, γj, Tx; x_step::Float64 = 0.001, 
     x_start::Float64 = 0.001, x_end::Float64 = 0.999, round1::Int64 = 3, round2::Int64 = 3, 
     round3::Int64 = 3, pp::Bool = true, e::Bool = true)
-
-    # Inputs: 
-    # 1. params = Dictionary that includes the solvents used as keys and the respective
-    # interaction parameters. The solute key contains the calorimetric data of the
-    # target molecule as an array
-    # 2. solvent = String of the solvent used for the modeling
-    # 3. γix = Activtiy coefficient of the i component at temperature Tx in the x compositon
-    # 4. γjx = Activtiy coefficient of the j component at temperature Tx in the x compositon
-    # 5. Tx = Value of the type Int64/Float64 of the temperature used to determine the
-    # activity coefficient
-
-    # Optional:
-    # 1. x_step = Step size of the molar composition increments. Automatically set to 0.001
-    # 2. x_start = Start of the iteration of the molar composition. Automatically set to 0.001
-    # 3. x_end = End of the iteration of the molar composition. Automatically set to 0.999
-    # 4. round# = This affects the sensitivity of the solubility equation. This rounds to the
-    # specified number of digits after the decimal place. Automatically set to 4 for the
-    # solubility of the enantiomers and 3 for the solubility of the racemate
-    # 5. pp = Boolean that allows the post-processing of the output array will be done to 
-    # remove any points beyond the eutectic points
-
-    # The function will find the activity coefficient of the R enantiomer and the S enantiomer
-    # and checks if the Schrödenberg Van Laar equation and the Prigogine and Defay equation 
-    # is correct. This is done for every molar composition possible. When the solubility equation
-    # is true, the molar composition is appended to an array. The array is then processed to remove
-    # solubility points beyond the eutectic points
 
     e_1 = []; e_2 = []; e_3 = []; r_1 = []; r_2 = []; r_3 = []
     e_values = [e_1, e_2, e_3]; r_values = [r_1, r_2, r_3]

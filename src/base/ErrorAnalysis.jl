@@ -1,3 +1,8 @@
+"""
+
+
+
+"""
 function errorAnalysis(model, experimental, components)
 
     if components == 2

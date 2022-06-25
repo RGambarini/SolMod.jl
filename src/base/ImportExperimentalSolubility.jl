@@ -1,12 +1,17 @@
-function importExperimentalSolubility(filepath::String)
+"""
 
-  # Inputs: 
-  # 1. filepath = String that includes the filepath of the xlsx 
-  # file that we are intending to import
-  
-  # Using the package XLSX we import the first 2 columns of every
-  # sheet in the xlsx file. Every sheet name will be the key of our
-  # dictionary and the values will be the 2 columns in the sheet
+  importExperimentalSolubility(filepath::String)
+
+Using the package XLSX we import the first 2 columns of every
+sheet in the xlsx file. Every sheet name will be the key of our
+dictionary and the values will be the 2 columns in the sheet
+
+Inputs: 
+1. filepath = String that includes the filepath of the xlsx 
+file that we are intending to import
+
+"""
+function importExperimentalSolubility(filepath::String)
 
   Exp = Dict()
 

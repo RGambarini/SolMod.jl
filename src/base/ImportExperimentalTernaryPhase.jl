@@ -1,12 +1,17 @@
-function importExperimentalTernaryPhase(filepath::String)
+"""
 
-  # Inputs: 
-  # 1. filepath = String that includes the filepath of the xlsx 
-  # file that we are intending to import
-  
-  # Using the package XLSX we import the the first 3 columns of every
-  # sheet in the xlsx file. Every sheet name will be the key of our
-  # dictionary and the values will be the 3 columns in the sheet
+  importExperimentalTernaryPhase(filepath::String)
+
+Using the package XLSX we import the the first 3 columns of every
+sheet in the xlsx file. Every sheet name will be the key of our
+dictionary and the values will be the 3 columns in the sheet
+
+Inputs: 
+1. filepath = String that includes the filepath of the xlsx 
+file that we are intending to import
+
+"""
+function importExperimentalTernaryPhase(filepath::String)
 
   Exp = Dict()
 

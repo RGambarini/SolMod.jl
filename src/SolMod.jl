@@ -18,7 +18,7 @@ export importExperimentalTernaryPhase
 export exportExperimentalTernaryPhase
 export solubilityPoint
 export ternaryPhase
-export ideal_activityCoefficient
+export idealActivityCoefficient
 export errorAnalysis
 
 # NRTL
