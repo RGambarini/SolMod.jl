@@ -3,20 +3,20 @@ A [Julia](http://julialang.org) package used for the prediction of solubility wi
 
 Thermodynamic Models:
 
-    - **Empirical Models**:
+- **Empirical Models**:
 
-        - Wilson
-        - NRTL
-        - UNIQUAC
+    - Wilson
+    - NRTL
+    - UNIQUAC
 
-    - **Semi-Empirical Models**:
+- **Semi-Empirical Models**:
 
-        - NRTL-SAC
-        - UNIQUAC-SAC
+    - NRTL-SAC
+    - UNIQUAC-SAC
 
-    - **Predictive Models**:
+- **Predictive Models**:
 
-        - PC-SAFT
+    - PC-SAFT
 
 The documentation is laid out as follows:
 
