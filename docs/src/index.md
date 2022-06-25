@@ -9,14 +9,17 @@ Thermodynamic Models:
     - NRTL
     - UNIQUAC
 
+
 - **Semi-Empirical Models**:
 
     - NRTL-SAC
     - UNIQUAC-SAC
 
+
 - **Predictive Models**:
 
     - PC-SAFT
+    
 
 The documentation is laid out as follows:
 

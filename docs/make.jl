@@ -3,10 +3,14 @@ using Documenter
 using SolMod
 
 makedocs(sitename="SolMod",
-         pages = [
-            "Index" => "index.md"
+    format = Documenter.HTML(
+    canonical = "https://RGambarini.github.io/SolMod.jl/",
+    assets = ["assets/solmod_logo.ico"]
+),
+    author = "Roberto Gambarini.",
+    pages = [
+            "Home" => "index.md"
          ],
-         format = Documenter.HTML(prettyurls = false)
 )
 
 # Documenter can also automatically deploy documentation to gh-pages.
