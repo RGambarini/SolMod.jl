@@ -13,6 +13,5 @@ makedocs(sitename="SolMod",
 # for more information.
 
 deploydocs(
-    repo = "github.com/RGambarini/SolMod",
-    devbranch = "main"
+    repo = "github.com/RGambarini/SolMod"
 )
