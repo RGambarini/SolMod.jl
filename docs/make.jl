@@ -7,7 +7,7 @@ makedocs(sitename="SolMod",
     canonical = "https://RGambarini.github.io/SolMod.jl/",
     assets = ["assets/solmod_logo.ico"]
 ),
-    author = "Roberto Gambarini.",
+    authors = "Roberto Gambarini.",
     pages = [
             "Home" => "index.md",
          "Background" => "background.md",
