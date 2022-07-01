@@ -18,21 +18,24 @@ The symmetrical properties of enantiomers in solution makes the separation of th
 
 Knowledge of the points of solubility, as a function of their temperature and composition, is essential to produce enantiopure products from a racemic compound. These experiments require extensive trial-and-error results that are both costly and time-consuming. The process is also solvent-solute specific, so the process needs to be repeated across any combination of components. To circumvent this requirement, we can develop a thermodynamic model in order to predict the possible solubility values. Solubility of a binary system can be predicted using the equations put forth by Schröder and van Laar [[12]](https://agris.fao.org/agris-search/search.do?recordID=US201300332512). The ideal solubility of a compound ($x_i^{sat}$) in a solution can be calculated by knowing the compound’s calorimetric properties ($Δ_{fus}H_i, T_m$) and the activity coefficient ($\gamma_i^L$). This equation is simplified from the relationship between the activity coefficient and fugacity in the liquid phase. The calorimetric properties of a solute can be easily determined and used irregardless of the solvent.
 
-$
+``
+    \begin{align}
             f^L_i &= f^S_i \tag{1} \\
             f^L_i &= f^{L,0}_ix^{sat}_iγ^L_i \tag{2} \\
             ln\dfrac{f^L_i}{f^{L,0}_i} &= ln(x^{sat}_iγ^L_i) \tag{3} \\
             ln(x^{sat}_iγ^L_i) & = \dfrac{Δ_{fus}H_i}{RT}(\dfrac{T}{T_{m,i}} - 1) + \dfrac{Δc_{p, i}}{R}(\dfrac{T_{m,i}}{T} - 1) + \dfrac{Δc_{p, i}}{R}(-ln(\dfrac{T_{m,i}}{T})) \tag{4} \\
             ln(x^{sat}_iγ^L_i) & = \dfrac{Δ_{fus}H_i}{R}(\dfrac{1}{T_{m,i}} - \dfrac{1}{T}) \tag{5}
-$
+        \end{align}
+``\
 
 The activity coefficient of a non-ideal mixture must be computed using thermodynamic models. Traditionally, empirical methods have been used to determine the activity coefficient. Empirical models such as Wilson, NRTL (Non-random two liquid), UNIQUAC (Universal Quasichemical), etc., have been successfully used in industry to model pharmaceutical solubility [[13]](https://www.academia.edu/download/72909788/JASCMV4N3A2-Salimi.pdf). These equations are dependent on interaction parameters derived from experimental research. Once obtained, the unique solute-solvent parameters can be used in any composition at a broad temperature range. Completely predictive models have also been used to determine the activity coefficient with limited success. The required information can be determined by either quantum calculations using COSMO-RS (Conductor like Screening Model for Real Solvents) or equations of state such as PC-SAFT (Perturbation-Chain Statistical Associating Fluid Theory). Both methods will yield an acceptable activity coefficient, but their use is considered less reliable compared to empirical models if the experimental data is available [[14]](https://onlinelibrary.wiley.com/doi/pdf/10.1002/jps.21032?casa_token=6HrdhQaqmZgAAAAA:MbKV4_rJabCISLN8jq5CLo4YfljIYg8GyGjVHNFMdI9oU1O2ytyQSVoXvrsUUriCYK8tjP3QwzCldOvXQA). Recently, modifications to the empirical methods have yielded semi-empirical formulations that attempt to minimize error. Predominantly, this comes as the SAC modification (Segment Activity Coefficient), where the molecule’s surface interactions are divided in segments and each type of solute-solvent interaction (hydrophobic, hydrophilic, and polar) has been predefined.
 
 The solubility data of enantiomeric mixtures is easily interpreted using a ternary phase diagram. In this three-variable chart, every point represents a composition of the R/S enantiomer and the solvent of the solution. The Schröder and van Laar equation allows for the solubility lines of the enantiomers to be calculated. This is the case for conglomerates, but in most situations the mixture will behave as a racemic compound, where the racemate must be accounted for. Like single enantiomers, we require the activity coefficient of the racemate to model solubility. An expansion of the Schröder and van Laar equation leads to a modified Prigogine and Defay equation [[15]](http://hdl.handle.net/2013/ULB-DIPOT:oai:dipot.ulb.ac.be:2013/251771) [[16]](https://pubs.acs.org/doi/pdf/10.1021/je900353b?casa_token=0zrxAThReXgAAAAA:9edI4d4G6AOwxFXnumUeRusQMVn-DMYY_64aV9q7xIBtyOZXeAYLAHAJzuP44pVmebtNsoURydLtNiX5GQ). This relationship can be used to determine the solubility point of the racemate with the activity coefficient of the constituent enantiomers. This allows for the calculation of the racemate solubility curve and determining the eutectic points of the solution. Knowing the eutectic points gives us enough information to design a process where we can produce one kind of crystal enantiomer.
 
-![Ternary Phase Diagram](../build/assets/tpd.png)\
+![Ternary Phase Diagram](../build/assets/tpd.png)<center> <em>Ternary phase diagrams for a conglomerate (Left) and for a racemic compound (Right). Components in the solid phase are tagged with (s), while components in the liquid phase are group under L. RS refers to the racemate in the racemic compound.</em></center>\
 
-$
+``
+\begin{align}
         dG &= (\dfrac{\partial G}{\partial T})_{p,n}\space dT + (\dfrac{\partial G}{\partial p})_{T,n}\space dp + ∑\mu_idn_i \tag{1} \\
         -(\dfrac{\partial G}{\partialζ})_{T,p} &= A \tag{2} \\
         A &= \mu^S_{rac} - v_i\mu^L_{i} + v_j\mu^L_{j} \tag{3} \\
@@ -46,7 +49,8 @@ $
         -ln \dfrac{x_ix_j}{0.25} &= \dfrac{Δ_{fus}H_{rac}}{R}(\dfrac{1}{T} - \dfrac{1}{T_{m, rac}}) \tag{11} \\
         ln \space 4 \space x_ix_j &= \dfrac{Δ_{fus}H_{rac}}{R}(\dfrac{1}{T_{m, rac}} - \dfrac{1}{T}) \tag{11} \\
         ln \space [4 \space x_i^{sat}\gamma^L_ix_j^{sat}\gamma^L_j] &= \dfrac{Δ_{fus}H_{rac}}{R}(\dfrac{1}{T_{m, rac}} - \dfrac{1}{T}) \tag{12} \\
-$
+    \end{align}
+``\
 
 #### References
 
