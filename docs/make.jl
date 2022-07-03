@@ -5,7 +5,7 @@ using SolMod
 makedocs(sitename="SolMod",
     format = Documenter.HTML(
     canonical = "https://RGambarini.github.io/SolMod.jl/",
-    assets = ["assets/"]
+    assets = ["../assets/"]
 ),
     authors = "Roberto Gambarini.",
     pages = [
