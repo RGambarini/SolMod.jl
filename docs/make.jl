@@ -4,8 +4,9 @@ using SolMod
 
 makedocs(sitename="SolMod",
     format = Documenter.HTML(
-    canonical = "https://RGambarini.github.io/SolMod.jl/",
-    assets = ["assets/logo.ico"]
+    canonical = "https://RGambarini.github.io/SolMod.jl/main",
+    assets = ["assets/logo.ico"],
+    sidebar_sitename = false
 ),
     authors = "Roberto Gambarini.",
     pages = [
