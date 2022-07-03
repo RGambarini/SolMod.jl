@@ -16,28 +16,33 @@ The symmetrical properties of enantiomers in solution makes the separation of th
 
 Knowledge of the points of solubility, as a function of their temperature and composition, is essential to produce enantiopure products from a racemic compound. These experiments require extensive trial-and-error results that are both costly and time-consuming. The process is also solvent-solute specific, so the process needs to be repeated across any combination of components. To circumvent this requirement, we can develop a thermodynamic model in order to predict the possible solubility values. Solubility of a binary system can be predicted using the equations put forth by Schröder and van Laar [^12]. The ideal solubility of a compound ($x_i^{sat}$) in a solution can be calculated by knowing the compound’s calorimetric properties ($Δ_{fus}H_i, T_m$) and the activity coefficient ($\gamma_i^L$). This equation is simplified from the relationship between the activity coefficient and fugacity in the liquid phase. The calorimetric properties of a solute can be easily determined and used irregardless of the solvent.
 
-$$ln(x^{sat}_iγ^L_i) = \dfrac{Δ_{fus}H_i}{R}(\dfrac{1}{T_{m,i}} - \dfrac{1}{T})$$
+```math
+ln(x^{sat}_iγ^L_i) = \dfrac{Δ_{fus}H_i}{R}(\dfrac{1}{T_{m,i}} - \dfrac{1}{T})
+```
 
 The activity coefficient of a non-ideal mixture must be computed using thermodynamic models. Traditionally, empirical methods have been used to determine the activity coefficient. Empirical models such as Wilson, NRTL (Non-random two liquid), UNIQUAC (Universal Quasichemical), etc., have been successfully used in industry to model pharmaceutical solubility [^13]. These equations are dependent on interaction parameters derived from experimental research. Once obtained, the unique solute-solvent parameters can be used in any composition at a broad temperature range. Completely predictive models have also been used to determine the activity coefficient with limited success. The required information can be determined by either quantum calculations using COSMO-RS (Conductor like Screening Model for Real Solvents) or equations of state such as PC-SAFT (Perturbation-Chain Statistical Associating Fluid Theory). Both methods will yield an acceptable activity coefficient, but their use is considered less reliable compared to empirical models if the experimental data is available [^14]. Recently, modifications to the empirical methods have yielded semi-empirical formulations that attempt to minimize error. Predominantly, this comes as the SAC modification (Segment Activity Coefficient), where the molecule’s surface interactions are divided in segments and each type of solute-solvent interaction (hydrophobic, hydrophilic, and polar) has been predefined.
 
 The solubility data of enantiomeric mixtures is easily interpreted using a ternary phase diagram. In this three-variable chart, every point represents a composition of the R/S enantiomer and the solvent of the solution. The Schröder and van Laar equation allows for the solubility lines of the enantiomers to be calculated. This is the case for conglomerates, but in most situations the mixture will behave as a racemic compound, where the racemate must be accounted for. Like single enantiomers, we require the activity coefficient of the racemate to model solubility. An expansion of the Schröder and van Laar equation leads to a modified Prigogine and Defay equation [^15][^16]. This relationship can be used to determine the solubility point of the racemate with the activity coefficient of the constituent enantiomers. This allows for the calculation of the racemate solubility curve and determining the eutectic points of the solution. Knowing the eutectic points gives us enough information to design a process where we can produce one kind of crystal enantiomer.
 
 ![Ternary Phase Diagram](../assets/tpd.png)
-\
-$$ln \space [4 \space x_i^{sat}\gamma^L_ix_j^{sat}\gamma^L_j] = \dfrac{Δ_{fus}H_{rac}}{R}(\dfrac{1}{T_{m, rac}} - \dfrac{1}{T})$$
-[^1]: Leclercq F. Arago, Biot, and Fresnel Elucidate Circular Polarization. Revue dhistoire des sciences. 2013;66(2):395-416.
-[^2]: Pasteur L. Memoires sur la relation qui peut exister entre la forme crystalline et al composition chimique, et sur la cause de la polarization rotatoire. Compt. rend.. 1848;26:535-8.
-[^3]: Hoff JH. Voorstel tot uitbreiding der tegenwoordig in de scheikunde gebruikte structuur-formules in de ruimte: benevens een daarmee samenhangende opmerking omtrent het verband tusschen optisch actief vermogen en chemische constitutie van organische verbindingen. Greven; 1874.
-[^4]: Le Bel JA. On the relations which exist between the atomic formulas of organic compounds and the rotatory power of their solutions. Bull. Soc. Chim. 1874;22:337-47. 
-[^5]: Bertrand M, Chabin A, Brack A, Westall F. Separation of amino acid enantiomers VIA chiral derivatization and non-chiral gas chromatography. Journal of Chromatography A. 2008 Feb 8;1180(1-2):131-7.
-[^6]: Asghar W, Pittman E, Jamali F. Comparative efficacy of esomeprazole and omeprazole: Racemate to single enantiomer switch. DARU Journal of Pharmaceutical Sciences. 2015 Dec;23(1):1-7.
-[^7]: Conley JG, Bican PM, Ernst H. Value articulation: a framework for the strategic management of intellectual property. California Management Review. 2013 Jul;55(4):102-20.
-[^8]: Hawkins JM, Watson TJ. Asymmetric catalysis in the pharmaceutical industry. Angewandte Chemie International Edition. 2004 Jun 21;43(25):3224-8.
-[^9]: Mane S. Racemic drug resolution: a comprehensive guide. Analytical Methods. 2016;8(42):7567-86.
-[^10]: Lorenz H, Sheehan P, Seidel-Morgenstern A. Coupling of simulated moving bed chromatography and fractional crystallisation for efficient enantioseparation. Journal of Chromatography A. 2001 Jan 26;908(1-2):201-14.
-[^11]: Lorenz H, Temmel E, Seidel-Morgenstern A. Continuous Enantioselective Crystallization of Chiral Compounds. InThe Handbook of Continuous Crystallization 2020 Feb 4 (pp. 422-468).
-[^12]: Jacques J, Collet A, Wilen SH. Enantiomers, racemates, and resolutions. Wiley; 1981.
-[^13]: Salimi M, Zarenezhad B, Fakhraian H, Choobdari E. Thermodynamic modeling of chiral compounds solubility using Correlative and predictive models. Journal of Applied Solution Chemistry and Modeling. 2015 Jul 1;4(3):143.
-[^14]: Tung HH, Tabora J, Variankaval N, Bakken D, Chen CC. Prediction of pharmaceutical solubility via NRTL-SAC and COSMO-SAC. Journal of Pharmaceutical Sciences. 2008 May 1;97(5):1813-20.
-[^15]: Prigogine I, Defay R. Chemical thermodynamics. Norwich: Jarrold & Sons. 1958.
-[^16]: Tulashie SK, Kaemmerer H, Lorenz H, Seidel-Morgenstern A. Solid− liquid equilibria of mandelic acid enantiomers in two chiral solvents: experimental determination and model correlation. Journal of Chemical & Engineering Data. 2010 Jan 14;55(1):333-40
+
+```math
+ln \space [4 \space x_i^{sat}\gamma^L_ix_j^{sat}\gamma^L_j] = \dfrac{Δ_{fus}H_{rac}}{R}(\dfrac{1}{T_{m, rac}} - \dfrac{1}{T})
+```\
+
+[^1]: Leclercq F. Arago, Biot, and Fresnel Elucidate Circular Polarization. Revue dhistoire des sciences. 2013;66(2):395-416.\
+[^2]: Pasteur L. Memoires sur la relation qui peut exister entre la forme crystalline et al composition chimique, et sur la cause de la polarization rotatoire. Compt. rend.. 1848;26:535-8.\
+[^3]: Hoff JH. Voorstel tot uitbreiding der tegenwoordig in de scheikunde gebruikte structuur-formules in de ruimte: benevens een daarmee samenhangende opmerking omtrent het verband tusschen optisch actief vermogen en chemische constitutie van organische verbindingen. Greven; 1874.\
+[^4]: Le Bel JA. On the relations which exist between the atomic formulas of organic compounds and the rotatory power of their solutions. Bull. Soc. Chim. 1874;22:337-47. \
+[^5]: Bertrand M, Chabin A, Brack A, Westall F. Separation of amino acid enantiomers VIA chiral derivatization and non-chiral gas chromatography. Journal of Chromatography A. 2008 Feb 8;1180(1-2):131-7.\
+[^6]: Asghar W, Pittman E, Jamali F. Comparative efficacy of esomeprazole and omeprazole: Racemate to single enantiomer switch. DARU Journal of Pharmaceutical Sciences. 2015 Dec;23(1):1-7.\
+[^7]: Conley JG, Bican PM, Ernst H. Value articulation: a framework for the strategic management of intellectual property. California Management Review. 2013 Jul;55(4):102-20.\
+[^8]: Hawkins JM, Watson TJ. Asymmetric catalysis in the pharmaceutical industry. Angewandte Chemie International Edition. 2004 Jun 21;43(25):3224-8.\
+[^9]: Mane S. Racemic drug resolution: a comprehensive guide. Analytical Methods. 2016;8(42):7567-86.\
+[^10]: Lorenz H, Sheehan P, Seidel-Morgenstern A. Coupling of simulated moving bed chromatography and fractional crystallisation for efficient enantioseparation. Journal of Chromatography A. 2001 Jan 26;908(1-2):201-14.\
+[^11]: Lorenz H, Temmel E, Seidel-Morgenstern A. Continuous Enantioselective Crystallization of Chiral Compounds. InThe Handbook of Continuous Crystallization 2020 Feb 4 (pp. 422-468).\
+[^12]: Jacques J, Collet A, Wilen SH. Enantiomers, racemates, and resolutions. Wiley; 1981.\
+[^13]: Salimi M, Zarenezhad B, Fakhraian H, Choobdari E. Thermodynamic modeling of chiral compounds solubility using Correlative and predictive models. Journal of Applied Solution Chemistry and Modeling. 2015 Jul 1;4(3):143.\
+[^14]: Tung HH, Tabora J, Variankaval N, Bakken D, Chen CC. Prediction of pharmaceutical solubility via NRTL-SAC and COSMO-SAC. Journal of Pharmaceutical Sciences. 2008 May 1;97(5):1813-20.\
+[^15]: Prigogine I, Defay R. Chemical thermodynamics. Norwich: Jarrold & Sons. 1958.\
+[^16]: Tulashie SK, Kaemmerer H, Lorenz H, Seidel-Morgenstern A. Solid− liquid equilibria of mandelic acid enantiomers in two chiral solvents: experimental determination and model correlation. Journal of Chemical & Engineering Data. 2010 Jan 14;55(1):333-40\
