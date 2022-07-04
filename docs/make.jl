@@ -11,10 +11,10 @@ makedocs(sitename="SolMod",
     authors = "Roberto Gambarini.",
     pages = [
             "Home" => "index.md",
-         "Background" => "background.md",
-         "Basic Usage" => "basic_usage.md",
-         "Notebook Examples" => "notebook_examples.md",
-         "To-do list" => "to-do_list.md",
+         "Background" => "Background.md",
+         "Basic Usage" => "Basic_Usage.md",
+         "Notebook Examples" => "Notebook_Examples.md",
+         "To-do list" => "To-Do_List.md",
          
          "Available Models" => [
          "Empirical Models" => Any[
