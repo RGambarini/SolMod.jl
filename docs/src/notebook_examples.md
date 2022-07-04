@@ -1,1 +1,8 @@
-# Notebook Examples
+- Empirical Models:
+  - NRTL
+  - UNIQUAC
+- Semi-Empirical Models:
+  - NRTL-SAC
+  - UNIQUAC-SAC
+- Predictive Models:
+  - PC-SAFT

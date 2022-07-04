@@ -13,9 +13,6 @@ makedocs(sitename="SolMod",
             "Home" => "index.md",
          "Background" => "background.md",
          "Basic Usage" => "basic_usage.md",
-         "Notebook Examples" => "notebook_examples.md",
-         "To-do list" => "to-do_list.md",
-         
          "Available Models" => [
          "Empirical Models" => Any[
             "Wilson"=>"AvailableModels/Wilson.md",
@@ -26,7 +23,10 @@ makedocs(sitename="SolMod",
             "UNIQUAC-SAC"=>"AvailableModels/UNIQUAC-SAC.md"]
          "Predictive Models" => Any[
             "PC-SAFT"=>"AvailableModels/PC-SAFT.md"]
-         ]])
+         ],
+         "Notebook Examples" => "notebook_examples.md",
+         "To-do list" => "to-do_list.md",
+         "API" => "api.md"])
 
 # Documenter can also automatically deploy documentation to gh-pages.
 # See "Hosting Documentation" and deploydocs() in the Documenter manual
