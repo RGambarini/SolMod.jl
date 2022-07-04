@@ -2,8 +2,8 @@
 
 The documentation is laid out as follows:
 
-- [Background](@ref): Find scientific basis to determine the activity coefficient of a compound in a mixture and find the point of solubility.
-
+- [Background](@ref): Find scientific basis to determine the activity coefficient of a compound in a mixture and find the point of solubility.  
+  
 - [Basic Usage](@ref): Find out how to use the available models to determine the activity coefficient and the respective solubility of a molecule.
 
 - **Thermodynamic Models**:
