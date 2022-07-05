@@ -44,7 +44,7 @@ params["Solvent"]["g"] = [0       216631  25269
 
 # Binary Curve
 
-With the parameters imported, we can use the model to determine the activity coefficient. We want to predict a solubility curve for the S-enantiomer. The curve will range from  ``298 K``  to  ``334 K``  and an initial guess of the composition of  ``0.12 \dfrac{mol}{mol}`` :
+With the parameters imported, we can use the model to determine the activity coefficient. We want to predict a solubility curve for the S-enantiomer. The curve will range from  ``298 K``  to  ``334 K``  and an initial guess of the composition:
 
 ```julia
 NRTL_solubilityCurve(params, [298, 334], "Solvent", guess = 0.12, components = 3)

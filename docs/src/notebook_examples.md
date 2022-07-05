@@ -8,6 +8,4 @@
 - Predictive Models:
   - *PC-SAFT* [^dev]
 
-
-
 [^dev]: These models are currently in development and will be updated with their notebook examples when ready
