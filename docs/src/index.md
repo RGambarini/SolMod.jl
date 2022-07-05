@@ -10,9 +10,9 @@ The documentation is laid out as follows:
 
   - **Empirical Models**:
 
-      - [Wilson]([@ref](https://rgambarini.github.io/SolMod.jl/dev/AvailableModels/Wilson/))
-      - [NRTL]([@ref](https://rgambarini.github.io/SolMod.jl/dev/AvailableModels/NRTL/))
-      - [UNIQUAC]([@ref](https://rgambarini.github.io/SolMod.jl/dev/AvailableModels/UNIQUAC/))
+      - [Wilson](https://rgambarini.github.io/SolMod.jl/dev/AvailableModels/Wilson/)
+      - [NRTL](https://rgambarini.github.io/SolMod.jl/dev/AvailableModels/NRTL/)
+      - [UNIQUAC](https://rgambarini.github.io/SolMod.jl/dev/AvailableModels/UNIQUAC/)
 
   - **Semi-Empirical Models**:
 
@@ -23,11 +23,13 @@ The documentation is laid out as follows:
 
       - [PC-SAFT](https://rgambarini.github.io/SolMod.jl/dev/AvailableModels/PC-SAFT/)
 
+  - [**Custom Model**](https://rgambarini.github.io/SolMod.jl/dev/AvailableModels/CustomModels/)
+
 - [Notebook Examples](https://rgambarini.github.io/SolMod.jl/dev/notebook_examples/): A list of available notebooks showcasing different functionalities of the package.
 
 - [To-Do List](https://rgambarini.github.io/SolMod.jl/dev/to-do_list/): A list of next objectives that are planned to be accomplished.
   
-- [API]([@ref](https://rgambarini.github.io/SolMod.jl/dev/api/)): A list of all available methods.
+- [API](https://rgambarini.github.io/SolMod.jl/dev/api/): A list of all available methods.
 
 ### Author
 

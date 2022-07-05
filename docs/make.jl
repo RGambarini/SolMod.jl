@@ -23,6 +23,7 @@ makedocs(sitename="SolMod",
             "UNIQUAC-SAC"=>"AvailableModels/UNIQUAC-SAC.md"]
          "Predictive Models" => Any[
             "PC-SAFT"=>"AvailableModels/PC-SAFT.md"]
+         "Custom Model" => "AvailableModels/CustomModel.md"
          ],
          "Notebook Examples" => "notebook_examples.md",
          "To-do list" => "to-do_list.md",
