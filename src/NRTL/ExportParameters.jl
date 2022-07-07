@@ -28,7 +28,6 @@ Optional:
 for the modeling. Automatically loads the keys of the params dictionary
 
 """
-
 function NRTL_exportParameters(params, components::Int64, outputfile::String; 
     sol::Vector = deleteat!(collect(keys(params)), 
     findall(x->x=="Solute", collect(keys(params)))))

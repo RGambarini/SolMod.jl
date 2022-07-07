@@ -1,3 +1,14 @@
+"""
+    NRTL_solubilityCurve(params::Dict,  T::Vector, solvent::String; j::Union{Float64, Int64} = 0, 
+    guess::Union{Float64, Int64} = 0, components = 3, Ti_step::Union{Float64, Int64} = 1, 
+    R::Union{Float64, Int64} = 8.314)
+
+Inputs: 
+1. x = 
+
+Optional:
+1. database = 
+"""
 function NRTL_solubilityCurve(params::Dict, T::Vector, solvent::String; j::Union{Float64, Int64} = 0, 
     guess::Union{Float64, Int64} = 0, components = 3, Ti_step::Union{Float64, Int64} = 1, 
     R::Union{Float64, Int64} = 8.314)
