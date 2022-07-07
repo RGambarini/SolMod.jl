@@ -6,6 +6,10 @@ The documentation is laid out as follows:
   
 - [Basic Usage](https://rgambarini.github.io/SolMod.jl/dev/basic_usage/): Find out how to use the available models to determine the activity coefficient and the respective solubility of a molecule.
 
+- [Notebook Examples](https://rgambarini.github.io/SolMod.jl/dev/notebook_examples/): A list of available notebooks showcasing different functionalities of the package.
+  
+- [API](https://rgambarini.github.io/SolMod.jl/dev/api/): A list of all available methods.
+
 - **Thermodynamic Models**:
 
   - **Empirical Models**:
@@ -19,10 +23,6 @@ The documentation is laid out as follows:
       - [UNIQUAC-SAC](https://rgambarini.github.io/SolMod.jl/dev/AvailableModels/UNIQUAC-SAC/)
 
   - [**Custom Model**](https://rgambarini.github.io/SolMod.jl/dev/AvailableModels/CustomModels/)
-
-- [Notebook Examples](https://rgambarini.github.io/SolMod.jl/dev/notebook_examples/): A list of available notebooks showcasing different functionalities of the package.
-  
-- [API](https://rgambarini.github.io/SolMod.jl/dev/api/): A list of all available methods.
 
 ### Author
 

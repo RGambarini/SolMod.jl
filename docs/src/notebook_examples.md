@@ -1,5 +1,5 @@
 - Empirical Models:
-  - NRTL
+  - [NRTL](https://nbviewer.org/github/RGambarini/SolMod.jl/blob/main/docs/src/NotebookExamples/NRTL.ipynb)
   - UNIQUAC
 - Semi-Empirical Models:
   - *NRTL-SAC* [^dev]

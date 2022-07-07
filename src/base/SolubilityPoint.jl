@@ -38,7 +38,6 @@ set to true. If e_1 is also true, the solubility of the racemate product will be
 7. Tm_rac = Melting temperature of the racemate
 
 """
-
 function solubilityPoint(params::Dict, Tx; R = 8.314, e_1 = true, e_2 = true,
    cal_params = params["Solute"], x::Vector = [0.3, 0.2, 0.5], γi = 1,  γj = 1)
 

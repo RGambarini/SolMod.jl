@@ -1,11 +1,15 @@
+"""
+    UNIQUAC_FredenslundParameters(x::Vector;
+        database = pathof(SolMod)[1:end-13]*"examples/Database/UNIQUAC-UNIFAC molecular parameters.xlsx")
+
+Inputs: 
+1. x = 
+
+Optional:
+1. database = 
+"""
 function UNIQUAC_FredenslundParameters(x::Vector;
     database = pathof(SolMod)[1:end-13]*"examples/Database/UNIQUAC-UNIFAC molecular parameters.xlsx")
-
-    # Inputs: 
-    # 1. x = 
-  
-    # Optional:
-    # 1. database = 
 
     m_params = []
 

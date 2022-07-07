@@ -1,9 +1,22 @@
 """
 
+  errorAnalysis(model, experimental, components)
 
+Using the package XLSX we export the dictionary as a dataframe to 
+construct 2 columns in every sheet of the xlsx file for every solvent
+
+Inputs: 
+1. model = Array that includes the temperature in the first column,
+molar composition of the R enantiomer on the second column, and/or 
+the molar composition of the S enantiomer depending on the component 
+value.
+2. experimental = Array that includes the keys for the solvents and
+the values that correspond to the temperature and molecular fraction 
+composition of the target molecule.
+3. components = Integer value that specifies the number of components
 
 """
-function errorAnalysis(model, experimental, components)
+function errorAnalysis(model, experimental, components::Int64)
 
     if components == 2
         
