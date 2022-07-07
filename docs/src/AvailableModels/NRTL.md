@@ -1,4 +1,4 @@
-The Nonrandom two-liquid model (NRTL) is an activity coefficient model to calculate the Gibbs free energy of a non-ideal system. It  defines the activity coefficient ``\gamma_i`` as a function of the molar composition ``x_i``. This model has been used in  chemical engineering applications and has been used in a wide variety of mixtures calculating vapour-liquid and liquid-liquid equilibria [^1] . The NRTL equation of a binary system is as follows:
+The Nonrandom two-liquid model (NRTL) is an activity coefficient model used to calculate the Gibbs free energy of a non-ideal system. It  defines the activity coefficient ``\gamma_i`` as a function of the molar composition ``x_i``. This model has been used in  chemical engineering applications and has been used in a wide variety of mixtures calculating vapour-liquid and liquid-liquid equilibria [^1] . The NRTL equation of a binary system is as follows:
 
 ```math
 ln \gamma_1 = x_2^2[\tau_{2 1} (\dfrac{G_{2 1}}{x_1 + x_2 G_{2 1}})^2+\dfrac{\tau_{1 2} G_{1 2}}{(x_2 + x_1 G_{1 2})^2}]

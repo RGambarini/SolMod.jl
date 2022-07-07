@@ -15,18 +15,14 @@ makedocs(sitename="SolMod",
          "Basic Usage" => "basic_usage.md",
          "Available Models" => [
          "Empirical Models" => Any[
-            "Wilson"=>"AvailableModels/Wilson.md",
             "NRTL"=>"AvailableModels/NRTL.md",
             "UNIQUAC"=>"AvailableModels/UNIQUAC.md"]
          "Semi-Empirical Models" => Any[
             "NRTL-SAC"=>"AvailableModels/NRTL-SAC.md",
             "UNIQUAC-SAC"=>"AvailableModels/UNIQUAC-SAC.md"]
-         "Predictive Models" => Any[
-            "PC-SAFT"=>"AvailableModels/PC-SAFT.md"]
          "Custom Model" => "AvailableModels/CustomModel.md"
          ],
          "Notebook Examples" => "notebook_examples.md",
-         "To-do list" => "to-do_list.md",
          "API" => "api.md"])
 
 # Documenter can also automatically deploy documentation to gh-pages.

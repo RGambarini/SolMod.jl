@@ -1,4 +1,4 @@
-Once SolMod is installed, it can be loaded using:
+Once SolMod.jl is installed, it can be loaded using:
 
 ```julia
 using SolMod
@@ -40,7 +40,7 @@ params["Solvent"]["g"] = [0       216631  25269
 ```
 !!! note
 
-    Although SolMod imports parameters from .xlsx files, nothing stops you from creating the parameter dataframes directly in Julia. Parameters in SolMod are read as dictionaries. Examples like the one above are shown to demonstrate the output of the import function and how to replicate it yourself.
+    Although SolMod.jl imports parameters from .xlsx files, nothing stops you from creating the parameter dataframes directly in Julia. Parameters in SolMod.jl are read as dictionaries. Examples like the one above are shown to demonstrate the output of the import function and how to replicate it yourself.
 
 # Binary Curve
 
@@ -50,7 +50,7 @@ With the parameters imported, we can use the model to determine the activity coe
 NRTL_solubilityCurve(params, [298, 334], "Solvent", guess = 0.12, components = 3)
 ```
 
-We can also obtain an error analysis using SolMod. We will get an output of the residuals from the experimental data and the RMSD (Root Mean Square Deviation). The RMSD of predicted values  ``\hat{x}``  for times a with variables observed over  ``A``  times, is computed for  ``A``  different predictions as the square root of the mean of the squares of the deviations:
+We can also obtain an error analysis using SolMod.jl. We will get an output of the residuals from the experimental data and the RMSD (Root Mean Square Deviation). The RMSD of predicted values  ``\hat{x}``  for times a with variables observed over  ``A``  times, is computed for  ``A``  different predictions as the square root of the mean of the squares of the deviations:
 
 ```math
 RMSD = \sqrt{\dfrac{\sum_{a=1}^A{(\hat{x}_a - x_a)^2}}{|A|}}

@@ -9,8 +9,7 @@ The documentation is laid out as follows:
 - **Thermodynamic Models**:
 
   - **Empirical Models**:
-
-      - [Wilson](https://rgambarini.github.io/SolMod.jl/dev/AvailableModels/Wilson/)
+  
       - [NRTL](https://rgambarini.github.io/SolMod.jl/dev/AvailableModels/NRTL/)
       - [UNIQUAC](https://rgambarini.github.io/SolMod.jl/dev/AvailableModels/UNIQUAC/)
 
@@ -19,15 +18,9 @@ The documentation is laid out as follows:
       - [NRTL-SAC](https://rgambarini.github.io/SolMod.jl/dev/AvailableModels/NRTL-SAC/)
       - [UNIQUAC-SAC](https://rgambarini.github.io/SolMod.jl/dev/AvailableModels/UNIQUAC-SAC/)
 
-  - **Predictive Models**:
-
-      - [PC-SAFT](https://rgambarini.github.io/SolMod.jl/dev/AvailableModels/PC-SAFT/)
-
   - [**Custom Model**](https://rgambarini.github.io/SolMod.jl/dev/AvailableModels/CustomModels/)
 
 - [Notebook Examples](https://rgambarini.github.io/SolMod.jl/dev/notebook_examples/): A list of available notebooks showcasing different functionalities of the package.
-
-- [To-Do List](https://rgambarini.github.io/SolMod.jl/dev/to-do_list/): A list of next objectives that are planned to be accomplished.
   
 - [API](https://rgambarini.github.io/SolMod.jl/dev/api/): A list of all available methods.
 
