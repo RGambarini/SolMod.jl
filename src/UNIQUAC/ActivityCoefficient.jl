@@ -1,22 +1,22 @@
 """
+    
     UNIQUAC_activityCoefficient(i_params::Dict, m_params::Matrix, Tx::Union{Float64, Int64}, 
-    solvent::String; e = false, x::Vector = [0.3, 0.2, 0.5], z::Int64 = 10,
-    components = 3)
+    solvent::String; e = false, x::Vector = [0.3, 0.2, 0.5], z::Int64 = 10, components = 3)
+
+To determine the activity coefficient of the system at the specified composition we use the UNIQUAC activity coefficient model:
+
+lnγ_i = ln (ɸ/x_i) + (z/2) q_i ln (θ/ɸ) + l_i - (ɸ/x_i) ∑(x_j l_j) + q_i[1 - ln(∑ {θ 𝜏_{j i}}) - ∑ (θ 𝜏_{i j})/(∑ {θ 𝜏})]
 
 Inputs: 
-1. params = Dictionary that includes the solvents used as keys and the respective
-interaction parameters. The solute key contains the calorimetric data of the
-target molecule as an array
+1. params = Dictionary that includes the solvents used as keys and the respective interaction parameters. The solute key contains the calorimetric data of the target molecule as an array
 2. solvent = String of the solvent used for the modeling
-3. Tx = Value of the type Int64/Float64 of the temperature used to determine the
-activity coefficient
+3. Tx = Value of the type Int64/Float64 of the temperature used to determine the activity coefficient
 
 Optional:
-1. R = Value of the type Int64/Float64 that represents the ideal gas constant. Automatically
-set to 8.314
-2. e = Boolean for enantiomeric processes to determine the activity coefficient of the
-opposite enantiomer. Automatically set to false
+1. R = Value of the type Int64/Float64 that represents the ideal gas constant. Automatically set to 8.314
+2. e = Boolean for enantiomeric processes to determine the activity coefficient of the opposite enantiomer. Automatically set to false
 3. x = Vector that includes the composition of the soluion. Automatically set to [0.3, 0.2, 0.5]
+
 """
 function UNIQUAC_activityCoefficient(i_params::Dict, m_params::Matrix, Tx::Union{Float64, Int64}, 
   solvent::String; e = false, x::Vector = [0.3, 0.2, 0.5], z::Int64 = 10,

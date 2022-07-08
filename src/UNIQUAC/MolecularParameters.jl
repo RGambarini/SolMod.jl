@@ -1,12 +1,16 @@
 """
-    UNIQUAC_FredenslundParameters(x::Vector;
-        database = pathof(SolMod)[1:end-13]*"examples/Database/UNIQUAC-UNIFAC molecular parameters.xlsx")
+
+    UNIQUAC_FredenslundParameters(x::Vector; 
+    database = pathof(SolMod)[1:end-13]*"examples/Database/UNIQUAC-UNIFAC molecular parameters.xlsx")
+
+Calculates the variables r and q as a measure of the molecule's size and external surface area to use in the UNIQUAC model.
 
 Inputs: 
-1. x = 
+1. x = Vector that includes a list of strings that are the molecular components of the full molecule
 
 Optional:
-1. database = 
+1. database = dataframe of the predetermined molecular component values from the UNIFAC/UNIQUAC
+
 """
 function UNIQUAC_FredenslundParameters(x::Vector;
     database = pathof(SolMod)[1:end-13]*"examples/Database/UNIQUAC-UNIFAC molecular parameters.xlsx")

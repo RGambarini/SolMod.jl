@@ -1,6 +1,8 @@
 """
 
-    ternaryPhase(params::Dict, γi, γj, Tx; x_step::Float64 = 0.001, x_start::Float64 = 0.001, x_end::Float64 = 0.999, round1::Int64 = 3, round2::Int64 = 3, round3::Int64 = 3, pp::Bool = true, e::Bool = true)
+    ternaryPhase(params::Dict, γi, γj, Tx; x_step::Float64 = 0.001, x_start::Float64 = 0.001, 
+    x_end::Float64 = 0.999, round1::Int64 = 3, round2::Int64 = 3, round3::Int64 = 3, pp::Bool = true, 
+    e::Bool = true)
 
 The function will find the activity coefficient of the R enantiomer and the S enantiomer and checks if the Schrödenberg Van Laar equation and the Prigogine and Defay equation  is correct. This is done for every molar composition possible. When the solubility equation is true, the molar composition is appended to an array. The array is then processed to remove solubility points beyond the eutectic points
 

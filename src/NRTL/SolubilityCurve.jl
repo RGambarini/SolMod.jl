@@ -1,13 +1,21 @@
 """
+
     NRTL_solubilityCurve(params::Dict,  T::Vector, solvent::String; j::Union{Float64, Int64} = 0, 
     guess::Union{Float64, Int64} = 0, components = 3, Ti_step::Union{Float64, Int64} = 1, 
     R::Union{Float64, Int64} = 8.314)
 
 Inputs: 
-1. x = 
+1. params = Dictionary that includes the solvents used as keys and the respective interaction parameters. The solute key contains the calorimetric data of the target molecule as an array
+2. T = Vector of length 2 that includes the start and the end temperature for the solubility curve
+3. solvent = String of the solvent used for the modeling
 
 Optional:
-1. database = 
+1. j = Float or integer value that represents the constant amount of the opposite enantiomer in the solution. Automatically set to 0
+2. guess = Float or integer value that represents a guess of the solubility point at the initial temperature. This can be inferred from experimental information. Automatically set to 0
+3. components = Integer value that represents the number of components in the solution. Automatically set to 3
+4. Ti_step = Float or integer value that represents the stepsize of the temperature iterations between the start temperature to the final temperature in the T vector. Automatically set to 1
+5. R = Value of the type Int64/Float64 that represents the ideal gas constant. Automatically set to 8.314
+
 """
 function NRTL_solubilityCurve(params::Dict, T::Vector, solvent::String; j::Union{Float64, Int64} = 0, 
     guess::Union{Float64, Int64} = 0, components = 3, Ti_step::Union{Float64, Int64} = 1, 
