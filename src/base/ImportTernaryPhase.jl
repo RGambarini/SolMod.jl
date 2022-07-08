@@ -1,13 +1,11 @@
 """
 
-  importTernaryPhase(filepath::String)
+    importTernaryPhase(filepath::String)
 
-Using the package XLSX we import the data from the xlsx file as a dataframe to 
-an array that corresponds to the partial molar composition of each component
+Using the package XLSX we import the data from the xlsx file as a dataframe to an array that corresponds to the partial molar composition of each component
 
 Inputs: 
-1. filepath = String that includes the filepath of the xlsx 
-file that we are intending to import
+1. filepath = String that includes the filepath of the xlsx file that we are intending to import
 
 """
 function importTernaryPhase(filepath::String)

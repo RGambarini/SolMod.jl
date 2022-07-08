@@ -8,7 +8,10 @@
         "enantiopure",
         "enantioseparation",
         "enantiospecific",
+        "Fredenslund",
+        "Kaemmerer",
         "Laar",
+        "mandelic",
         "Matplotlib",
         "Miao",
         "nonideal",
@@ -23,6 +26,7 @@
         "SAFT",
         "solubilities",
         "Thermopack",
+        "Tulashie",
         "UNIQUAC"
     ]
 }

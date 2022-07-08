@@ -2,12 +2,10 @@
 
     importSolubility(filepath::String)
 
-Using the package XLSX we import the data from the xlsx file as a dataframe to 
-an array that corresponds to the molar composition and the calculated temperature
+Using the package XLSX we import the data from the xlsx file as a dataframe to an array that corresponds to the molar composition and the calculated temperature
 
 Inputs: 
-1. filepath = String that includes the filepath of the xlsx 
-file that we are intending to import
+1. filepath = String that includes the filepath of the xlsx file that we are intending to import
 
 """
 function importSolubility(filepath::String)

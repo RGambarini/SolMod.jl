@@ -1,9 +1,9 @@
-The Nonrandom two-liquid segment activity coefficient  model (NRTL-SAC) is an activity coefficient model used to calculate the Gibbs free energy of a non-ideal system [^1] . It is a modification to the NRTL model and it  defines the activity coefficient ``\gamma_I`` as a function of the molar composition ``x_I``. In NRTL-SAC the activity coefficient is defined in a way that
+The Nonrandom two-liquid segment activity coefficient  model (NRTL-SAC) is an activity coefficient model used to calculate the Gibbs free energy of a non-ideal system [^1] . It is a modification to the NRTL model and it  defines the activity coefficient ``\gamma_I`` as a function of the molar composition ``x_I``. In NRTL-SAC the activity coefficient is defined in a way that:
 
 ```math
 ln \gamma_I = ln \gamma_I^C + ln \gamma_I^R
 ```
-where ``ln \gamma_I^C`` and ``ln \gamma_I^R`` are the combinatorial and residual contributions to the activity coefficient of molecule ``I``. The residual contribution is defined as:
+Where ``ln \gamma_I^C`` and ``ln \gamma_I^R`` are the combinatorial and residual contributions to the activity coefficient of molecule ``I``. The residual contribution ``ln \gamma_I^R`` is defined as:
 
 ```math
 ln \gamma_I^R = ln \gamma_I^{lc} = \sum_m{r_{m,I} [ln \Gamma_m^{lc} - ln \Gamma_m^{lc, I}]}
@@ -33,7 +33,7 @@ Where ```i```, ``j``, ``k``, ``m``, and ``m′`` are the segment-based species i
 G = e^{-\alpha \tau}
 ```
 
-The combinatorial contribution of the activity coefficient is solved from the Flory-Huggins term:
+The combinatorial contribution of the activity coefficient ``ln \gamma_I^C`` is solved from the Flory-Huggins term:
 
 ```math
 ln \gamma_I^C = ln \dfrac{\phi_I}{x_I} + 1 - r_I \sum_J {\dfrac{\phi_J}{x_J}}

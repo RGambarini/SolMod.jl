@@ -29,4 +29,6 @@ The variables ``r`` and ``q`` are measures of the molecule's size and external s
 ln\gamma_i = ln \dfrac{\phi_i}{x_i} + \dfrac{z}{2} q_i ln \dfrac{\theta_i}{\phi_i} + l_i - \dfrac{\phi_i}{x_i} \sum^n_{j = 1} {x_j l_j} + q_i[1 - ln(\sum^n_{j = 1} {\theta_j \tau_{j i}}) - \sum^n_{j = 1} {\dfrac{\theta_j \tau_{i j}}{\sum^n_{k = 1}{\theta_k \tau_{k j}}}}]
 ```
 
+Where ``n`` is the number of components in the mixture
+
 [^1]: Abrams DS, Prausnitz JM. Statistical thermodynamics of liquid mixtures: a new expression for the excess Gibbs energy of partly or completely miscible systems. AIChE Journal. 1975 Jan;21(1):116-28.

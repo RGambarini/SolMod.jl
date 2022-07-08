@@ -1,21 +1,15 @@
 """
 
-  exportExperimentalSolubility(exp, outputfile::String; 
-      solvents::Vector = collect(keys(exp)))
+    exportExperimentalSolubility(exp, outputfile::String; solvents::Vector = collect(keys(exp)))
 
-Using the package XLSX we export the dictionary as a dataframe to 
-construct 2 columns in every sheet of the xlsx file for every solvent
+Using the package XLSX we export the dictionary as a dataframe to construct 2 columns in every sheet of the xlsx file for every solvent
 
 Inputs: 
-1. exp = Dictionary that includes the keys for the solvents and
-the values that correspond to the temperature and molecular
-fraction composition of the target molecule
-2. outputfile = String that includes the filepath of the xlsx 
-file that we are intending to export 
+1. exp = Dictionary that includes the keys for the solvents and the values that correspond to the temperature and molecular fraction composition of the target molecule
+2. outputfile = String that includes the filepath of the xlsx file that we are intending to export 
 
 Optional:
-1. solvents = Vector that includes strings of the solvents that
-are used for the solubility prediction
+1. solvents = Vector that includes strings of the solvents that are used for the solubility prediction
 
 """
 function exportExperimentalSolubility(exp, outputfile::String; 
