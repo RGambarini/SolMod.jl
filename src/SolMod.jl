@@ -11,10 +11,6 @@ export importSolubility
 export exportSolubility
 export importTernaryPhase
 export exportTernaryPhase
-export importExperimentalSolubility
-export exportExperimentalSolubility
-export importExperimentalTernaryPhase
-export exportExperimentalTernaryPhase
 export solubilityPoint
 export ternaryPhase
 export idealActivityCoefficient
