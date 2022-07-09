@@ -107,8 +107,10 @@ using SolMod, Test
 
     i_params = Dict()
 
-    i_params["Solvent"] = rand(3, 3)
+    i_params["Solvent"] = [ 0.821005  0.303414  0.356109
+                            0.897201  0.242129  0.098042
+                            0.967782  0.469891  0.320051]
 
     uniquac_ac = UNIQUAC_activityCoefficient(i_params, m_params, 298, "Solvent")
 
-@test uniquac_ac == 1.2013926484682542
+@test uniquac_ac == 1.2038400308711088
