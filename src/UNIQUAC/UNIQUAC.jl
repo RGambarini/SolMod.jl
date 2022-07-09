@@ -4,4 +4,4 @@
 #include("ExportParameters.jl")
 include("ActivityCoefficient.jl")
 include("MolecularParameters.jl")
-include("SolubilityCurve.jl")
+#include("SolubilityCurve.jl")

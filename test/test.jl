@@ -101,4 +101,14 @@ using SolMod, Test
     
     rm("test.xlsx")
 
-    UNIQUAC_FredenslundParameters(["CH3", "CH2"])
+    m_params = UNIQUAC_FredenslundParameters([["CH3", "CH2"], ["CH3", "CH2"], ["H2O"]])
+
+@test m_params[2, 1] == 1.5755
+
+    i_params = Dict()
+
+    i_params["Solvent"] = rand(3, 3)
+
+    uniquac_ac = UNIQUAC_activityCoefficient(i_params, m_params, 298, "Solvent")
+
+@test uniquac_ac == 1.2013926484682542
