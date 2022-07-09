@@ -2,34 +2,30 @@
 
     importSolubility(filepath::String)
 
-Using the package XLSX we import the data from the xlsx file as a dataframe to an array that corresponds to the molar composition and the calculated temperature
+Using the package XLSX we import the first 2 columns of every sheet in the xlsx file. Every sheet name will be the key of our dictionary and the values will be the 2 columns in the sheet
 
 Inputs: 
 1. filepath = String that includes the filepath of the xlsx file that we are intending to import
 
 """
 function importSolubility(filepath::String)
-  
-    xf = XLSX.readxlsx(filepath)
-    solvent = XLSX.sheetnames(xf)[1]
-  
-    Partial_Molar_Composition = Matrix(DataFrame(XLSX.readtable(filepath, solvent)...))[:,1]
-    Calculated_Temperature = Matrix(DataFrame(XLSX.readtable(filepath, solvent)...))[:,2]
 
-    model = zeros(length(Partial_Molar_Composition), 2)
+  Exp = Dict()
 
-    for k in range(1, length(Partial_Molar_Composition))
+  xf = XLSX.readxlsx(filepath)
+  solvents = XLSX.sheetnames(xf)[2:end]
 
-        model[k, 1] = Partial_Molar_Composition[k]
-    
-    end
+  for l in range(1, length(solvents))
 
-    for j in range(1, length(Calculated_Temperature))
+    Ti = Matrix(DataFrame(XLSX.readtable(filepath, solvents[l])...))[:,1]
+    xi = Matrix(DataFrame(XLSX.readtable(filepath, solvents[l])...))[:,2]
 
-        model[j, 2] = Calculated_Temperature[j]
+    Exp[solvents[l]] = hcat(Ti, xi)
 
-    end
-  
-    return model
+  end
+
+  return Exp
+
+  println("Try again")
   
 end

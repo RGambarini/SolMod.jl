@@ -9,7 +9,6 @@ macro printline()  # useful in hunting for where tests get stuck
 end
 
 @testset "All tests" begin
-    include("test_TPD_NRTL.jl")
-    include("test_Curve_NRTL.jl")
+    include("test.jl")
     include("test_etc.jl")
 end

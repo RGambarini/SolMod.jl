@@ -50,10 +50,14 @@ function NRTL_exportParameters(params, components::Int64, outputfile::String;
       end
   
     elseif components == 3
+
+      fusΔH_rac = params["Solute"][3]
+      Tm_rac = params["Solute"][4]
   
       components = range(1, components)
   
-      XLSX.writetable(outputfile, DataFrame(fusΔH = fusΔH, Tm = Tm), 
+      XLSX.writetable(outputfile, DataFrame(fusΔH = fusΔH, Tm = Tm, 
+      fusΔH_rac = fusΔH_rac, Tm_rac = Tm_rac), 
         sheetname = "Solute")
   
   
