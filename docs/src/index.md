@@ -1,4 +1,4 @@
-**SolMod.jl** is a [Julia](http://julialang.org) package used for the prediction of solubility with the focus on creating ternary phase diagrams for pharmaceutical solubility of enantiopure drugs.
+[**SolMod.jl**](https://github.com/RGambarini/SolMod.jl) is a [Julia](http://julialang.org) package used for the prediction of solubility with the focus on creating ternary phase diagrams for pharmaceutical solubility of enantiopure drugs.
 
 The documentation is laid out as follows:
 

@@ -12,7 +12,7 @@ G_{2 1} = e^{-\alpha_{2 1}\tau_{2 1}} \\
 \tau_{2 1} = \dfrac{(g_{2 1} - g_{1 1})}{RT}
 ```
 
-In the NRTL model the ``R`` is the universal gas constant, ``T`` is the temperature at equilibrium, ``G`` is a dimensionless interaction parameter, that depends on a the specific component interaction energy parameter ``g`` and a non-randomness factor ``\alpha``. The two energy parameters ``(g_{1 2} - g_{2 2})`` and ``(g_{2 1} - g_{1 1})`` are adjustable values obtained by the regression of experimental data. ``alpha_{1 2}`` and ``alpha_{2 1}`` are the two adjustable non-randomness parameters. Experimental data for a large number of systems show that they range from ``0.20`` to ``0.47``. It is sometimes chosen casually as it has no physical correlation [^2].
+In the NRTL model the ``R`` is the universal gas constant, ``T`` is the temperature at equilibrium, ``G`` is a dimensionless interaction parameter, that depends on a the specific component interaction energy parameter ``g`` and a non-randomness factor ``\alpha``. The two energy parameters ``(g_{1 2} - g_{2 2})`` and ``(g_{2 1} - g_{1 1})`` are adjustable values obtained by the regression of experimental data. ``\alpha_{1 2}`` and ``\alpha_{2 1}`` are the two adjustable non-randomness parameters. Experimental data for a large number of systems show that they range from ``0.20`` to ``0.47``. It is sometimes chosen casually as it has no physical correlation [^2].
 
 The equation for a multicomponent system is as follows:
 
