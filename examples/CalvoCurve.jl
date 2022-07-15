@@ -6,7 +6,7 @@ params = NRTL_importParameters(dir, 2)
 
 dir = pathof(SolMod)[1:end-13]*"examples/Database/Calvo_Experimental.xlsx"
 
-Exp = importExperimentalSolubility(dir)
+Exp = importSolubility(dir)
 
 model = Dict()
 

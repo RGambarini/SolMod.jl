@@ -6,7 +6,7 @@ params = NRTL_importParameters(dir, 3)
 
 dir = pathof(SolMod)[1:end-13]*"examples/Database/Tulashie_Experimental.xlsx"
 
-Exp = importExperimentalTernaryPhase(dir)
+Exp = importTernaryPhase(dir)
 
 t = [298.15, 308.15, 318.15, 323.15, 328.15, 333.15]
 
