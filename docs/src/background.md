@@ -19,19 +19,48 @@ Knowledge of the points of solubility, as a function of their temperature and co
 Solubility of a binary system can be predicted using the equations put forth by Schröder and van Laar [^12]. A pure solid can be heated until melting temperature has been achieved during constant pressure. At melting temperature the solid will enter the solid-liquid transition phase. The species can then be cooled carefully as a metastable fluid down to its original temperature.
 
 ```math
-ln(\frac{f^S(Tm, P)}{f^S(T, P)}) = - \int_{T}^{T_m} (\frac{H^S-H^{ig}}{RT^2})dT \\
-f^S(T_m, P) = f^L (T_m, P) \\
-ln(\frac{f^L(T, P)}{f^L(T_m, P)}) = - \int_{T}^{T_m} (\frac{H^L-H^{ig}}{RT^2})dT \\
-ln(\frac{f^L(T, P)}{f^S(T, P)}) &= -\int_{T}^{T_m} \frac{\Delta H_{melt}(T_m)+(T-T_m)\Delta C_p}{RT^2}dT \\
-\Delta H_{melt} &= H^L(T_m) - H^S(T_m) \\
-H^L &= H^L(T_m) + C_p^L(T-T_m) \\
-ln(\frac{f^L(T, P)}{f^S(T, P)}) &= \frac{\Delta H_{melt}}{R}(\frac{1}{T}-\frac{1}{T_m}) - \frac{T_m}{R}\Delta C_p (\frac{1}{T}-\frac{1}{T_m} - \frac{\Delta C_p}{R} ln (\frac {T}{T_m})
+ln(\frac{f^S(Tm, P)}{f^S(T, P)}) = - \int_{T}^{T_m} (\frac{H^S-H^{ig}}{RT^2})dT 
 ```
 
-Under the assumption that the chemical potential of any species in all phases can be assumed to be identical. This requires the assumption that the fugacity of a dissolved solute equals the fugacity of the undissolved species in the solid state. During ideal interactions, the mutual solubility of the liquid and solid phase is ignored. The heat capacity below the melting point cannot be experimentally calculated. Its shape is not clearly defined either, which means the value cannot be extrapolated \cite{m}. Approximations between the solid and liquid heat capacities have been developed, such as making the value equal at the temperature of fusion under the assumption of being temperature insensitive \cite{n}. In most cases, good results can be produced when neglecting the heat capacity contribution which leads to the simplified binary solubility equation.
+```math
+f^S(T_m, P) = f^L (T_m, P) 
+```
 
+```math
+ln(\frac{f^L(T, P)}{f^L(T_m, P)}) = - \int_{T}^{T_m} (\frac{H^L-H^{ig}}{RT^2})dT
+```
 
-The ideal solubility of a compound (``x_i^{sat}``) in a solution can be calculated by knowing the compound’s calorimetric properties (``Δ_{fus}H_i, T_m``) and the activity coefficient (``\gamma_i^L``). The calorimetric properties of a solute can be easily determined and used irregardless of the solvent.
+```math
+ln(\frac{f^L(T, P)}{f^S(T, P)}) = -\int_{T}^{T_m} \frac{\Delta H_{melt}(T_m)+(T-T_m)\Delta C_p}{RT^2}dT
+```
+
+```math
+\Delta H_{melt} = H^L(T_m) - H^S(T_m)
+```
+
+```math
+H^L = H^L(T_m) + C_p^L(T-T_m)
+```
+
+```math
+ln(\frac{f^L(T, P)}{f^S(T, P)}) = \frac{\Delta H_{melt}}{R}(\frac{1}{T}-\frac{1}{T_m}) - \frac{T_m}{R}\Delta C_p (\frac{1}{T}-\frac{1}{T_m} - \frac{\Delta C_p}{R} ln (\frac {T}{T_m})
+```
+
+Under the assumption that the chemical potential of any species in all phases can be assumed to be identical. This requires the assumption that the fugacity of a dissolved solute equals the fugacity of the undissolved species in the solid state. During ideal interactions, the mutual solubility of the liquid and solid phase is ignored. 
+
+```math
+ln(x^{sat}_i \space \gamma^L_i) = \frac{\Delta H_{melt}}{R}(\frac{1}{T}-\frac{1}{T_m}) - \frac{T_m}{R}\Delta C_p (\frac{1}{T}-\frac{1}{T_m} - \frac{\Delta C_p}{R} ln (\frac {T}{T_m})
+```
+
+```math
+f^S_i = f^L_i (T, P, x_i)
+```
+
+```math
+f^S_i = x^{sat}_i \space \gamma^L_i \space f^L_i (T, P)
+```
+
+The heat capacity below the melting point cannot be experimentally calculated. Its shape is not clearly defined either, which means the value cannot be extrapolated [^13]. Approximations between the solid and liquid heat capacities have been developed, such as making the value equal at the temperature of fusion under the assumption of being temperature insensitive [^14]. In most cases, good results can be produced when neglecting the heat capacity contribution which leads to the simplified binary solubility equation. The ideal solubility of a compound (``x_i^{sat}``) in a solution can be calculated by knowing the compound’s calorimetric properties (``Δ_{fus}H_i, T_m``) and the activity coefficient (``\gamma_i^L``). The calorimetric properties of a solute can be easily determined and used irregardless of the solvent.
 
 ```math
 ln(x^{sat}_iγ^L_i) = \dfrac{Δ_{fus}H_i}{R}(\dfrac{1}{T_{m,i}} - \dfrac{1}{T})
@@ -57,24 +86,49 @@ ln \space [4 \space x_i^{sat}\gamma^L_ix_j^{sat}\gamma^L_j] = \dfrac{Δ_{fus}H_{
 
 [^5]: Bertrand M, Chabin A, Brack A, Westall F. Separation of amino acid enantiomers VIA chiral derivatization and non-chiral gas chromatography. Journal of Chromatography A. 2008 Feb 8;1180(1-2):131-7.
 
-[^6]: Asghar W, Pittman E, Jamali F. Comparative efficacy of esomeprazole and omeprazole: Racemate to single enantiomer switch. DARU Journal of Pharmaceutical Sciences. 2015 Dec;23(1):1-7.
+[^6]: Asghar W, Pittman E, Jamali F. Comparative efficacy of esomeprazole and omeprazole: Race-
+mate to single enantiomer switch. DARU Journal of Pharmaceutical Sciences. 2015 Nov;23(1):50.
+Available from: https://doi.org/10.1186/s40199-015-0133-6.
 
-[^7]: Conley JG, Bican PM, Ernst H. Value articulation: a framework for the strategic management of intellectual property. California Management Review. 2013 Jul;55(4):102-20.
+[^7]: Conley JG, Bican PM, Ernst H. Value Articulation: A Framework for the Strategic Management of
+Intellectual Property. California Management Review. 2013;55(4):102-20.
 
-[^8]: Hawkins JM, Watson TJ. Asymmetric catalysis in the pharmaceutical industry. Angewandte Chemie International Edition. 2004 Jun 21;43(25):3224-8.
+[^8]: Hawkins JM, Watson TJN. Asymmetric Catalysis in the Pharmaceutical Indus-
+try. Angewandte Chemie International Edition. 2004;43(25):3224-8. Available from:
+https://onlinelibrary.wiley.com/doi/abs/10.1002/anie.200330072.
 
-[^9]: Mane S. Racemic drug resolution: a comprehensive guide. Analytical Methods. 2016;8(42):7567-86.
+[^9]: Mane S. Racemic drug resolution: a comprehensive guide. Anal Methods. 2016;8:7567-86. Avail-
+able from: http://dx.doi.org/10.1039/C6AY02015A.
 
-[^10]: Lorenz H, Sheehan P, Seidel-Morgenstern A. Coupling of simulated moving bed chromatography and fractional crystallisation for efficient enantioseparation. Journal of Chromatography A. 2001 Jan 26;908(1-2):201-14.
+[^10]: Lorenz H, Sheehan P, Seidel-Morgenstern A. Coupling of simulated moving bed chromatogra-
+phy and fractional crystallisation for efficient enantioseparation. Journal of Chromatography A.
+2001;908(1):201-14. 13th International Symposium on Preparative and Process Chromatography.
+Available from: https://www.sciencedirect.com/science/article/pii/S0021967300009924
 
-[^11]: Lorenz H, Temmel E, Seidel-Morgenstern A. Continuous Enantioselective Crystallization of Chiral Compounds. InThe Handbook of Continuous Crystallization 2020 Feb 4 (pp. 422-468).
+[^11]: Gänsch J, Huskova N, Kerst K, Temmel E, Lorenz H, Mangold M, et al. Con-
+tinuous enantioselective crystallization of chiral compounds in coupled flu-
+idized beds. Chemical Engineering Journal. 2021;422:129627. Available from:
+https://www.sciencedirect.com/science/article/pii/S1385894721012146.
 
-[^12]: Jacques J, Collet A, Wilen SH. Enantiomers, racemates, and resolutions. Wiley; 1981.
+[^12]: Jacques J, Collet A, Wilen SH. Enantiomers, racemates, and resolutions. AGRIS. 1981:369-71.
 
-[^13]: Salimi M, Zarenezhad B, Fakhraian H, Choobdari E. Thermodynamic modeling of chiral compounds solubility using Correlative and predictive models. Journal of Applied Solution Chemistry and Modeling. 2015 Jul 1;4(3):143.
+[^13]: Neau SH, Flynn GL. Solid and liquid heat capacities of n-alkyl para-aminobenzoates near the
+melting point. Pharmaceutical research. 1990;7(11):1157-62.
 
-[^14]: Tung HH, Tabora J, Variankaval N, Bakken D, Chen CC. Prediction of pharmaceutical solubility via NRTL-SAC and COSMO-SAC. Journal of Pharmaceutical Sciences. 2008 May 1;97(5):1813-20.
+[^14]: Nti-Gyabaah J, Chmielowski R, Chan V, Chiew Y. Solubility of lovastatin in a family of six alco-
+hols: Ethanol, 1-propanol, 1-butanol, 1-pentanol, 1-hexanol, and 1-octanol. International journal of
+pharmaceutics. 2008;359(1-2):111-7.
 
-[^15]: Prigogine I, Defay R. Chemical thermodynamics. Norwich: Jarrold & Sons. 1958.
+[^15]: Salimi M, Zarenezhad B, Fakhraian H, Choobdari E. Thermodynamic modeling of chiral com-
+pounds solubility using Correlative and predictive models. Journal of Applied Solution Chemistry
+and Modeling. 2015;4(3):143.
 
-[^16]: Tulashie SK, Kaemmerer H, Lorenz H, Seidel-Morgenstern A. Solid− liquid equilibria of mandelic acid enantiomers in two chiral solvents: experimental determination and model correlation. Journal of Chemical & Engineering Data. 2010 Jan 14;55(1):333-40
+[^16]: Tung HH, Tabora J, Variankaval N, Bakken D, Chen CC. Prediction of Pharmaceutical Solubil-
+ity Via NRTL-SAC and COSMO-SAC. Journal of Pharmaceutical Sciences. 2008;97(5):1813-20.
+Available from: https://www.sciencedirect.com/science/article/pii/S0022354916325564.
+
+[^17]: Prigogine I, Defay R. Chemical thermodynamics. 1958.
+
+[^18]: Tulashie SK, Kaemmerer H, Lorenz H, Seidel-Morgenstern A. Solid−Liquid Equilibria of Mandelic
+Acid Enantiomers in Two Chiral Solvents: Experimental Determination and Model Correlation. Jour-
+nal of Chemical & Engineering Data. 2010;55(1):333-40.
