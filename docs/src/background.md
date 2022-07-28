@@ -19,19 +19,13 @@ Knowledge of the points of solubility, as a function of their temperature and co
 Solubility of a binary system can be predicted using the equations put forth by Schröder and van Laar [^12]. A pure solid can be heated until melting temperature has been achieved during constant pressure. At melting temperature the solid will enter the solid-liquid transition phase. The species can then be cooled carefully as a metastable fluid down to its original temperature.
 
 ```math
-ln(\frac{f^S(Tm, P)}{f^S(T, P)}) &= - \int_{T}^{T_m} (\frac{H^S-H^{ig}}{RT^2})dT \tag{1} \\
-\\
-f^S(T_m, P) &= f^L (T_m, P) \tag{2} \\
-\\
-ln(\frac{f^L(T, P)}{f^L(T_m, P)}) &= - \int_{T}^{T_m} (\frac{H^L-H^{ig}}{RT^2})dT \tag{3} \\
-\\
-ln(\frac{f^L(T, P)}{f^S(T, P)}) &= -\int_{T}^{T_m} \frac{\Delta H_{melt}(T_m)+(T-T_m)\Delta C_p}{RT^2}dT \tag{4} \\
-\\
-\Delta H_{melt} &= H^L(T_m) - H^S(T_m) \tag{4a} \\
-\\
-H^L &= H^L(T_m) + C_p^L(T-T_m) \tag{4b} \\
-\\
-ln(\frac{f^L(T, P)}{f^S(T, P)}) &= \frac{\Delta H_{melt}}{R}(\frac{1}{T}-\frac{1}{T_m}) - \frac{T_m}{R}\Delta C_p (\frac{1}{T}-\frac{1}{T_m} - \frac{\Delta C_p}{R} ln (\frac {T}{T_m}) \tag{5} \\
+ln(\frac{f^S(Tm, P)}{f^S(T, P)}) = - \int_{T}^{T_m} (\frac{H^S-H^{ig}}{RT^2})dT \\
+f^S(T_m, P) = f^L (T_m, P) \\
+ln(\frac{f^L(T, P)}{f^L(T_m, P)}) = - \int_{T}^{T_m} (\frac{H^L-H^{ig}}{RT^2})dT \\
+ln(\frac{f^L(T, P)}{f^S(T, P)}) &= -\int_{T}^{T_m} \frac{\Delta H_{melt}(T_m)+(T-T_m)\Delta C_p}{RT^2}dT \\
+\Delta H_{melt} &= H^L(T_m) - H^S(T_m) \\
+H^L &= H^L(T_m) + C_p^L(T-T_m) \\
+ln(\frac{f^L(T, P)}{f^S(T, P)}) &= \frac{\Delta H_{melt}}{R}(\frac{1}{T}-\frac{1}{T_m}) - \frac{T_m}{R}\Delta C_p (\frac{1}{T}-\frac{1}{T_m} - \frac{\Delta C_p}{R} ln (\frac {T}{T_m})
 ```
 
 Under the assumption that the chemical potential of any species in all phases can be assumed to be identical. This requires the assumption that the fugacity of a dissolved solute equals the fugacity of the undissolved species in the solid state. During ideal interactions, the mutual solubility of the liquid and solid phase is ignored. The heat capacity below the melting point cannot be experimentally calculated. Its shape is not clearly defined either, which means the value cannot be extrapolated \cite{m}. Approximations between the solid and liquid heat capacities have been developed, such as making the value equal at the temperature of fusion under the assumption of being temperature insensitive \cite{n}. In most cases, good results can be produced when neglecting the heat capacity contribution which leads to the simplified binary solubility equation.
