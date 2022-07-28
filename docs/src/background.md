@@ -14,7 +14,30 @@ The symmetrical properties of enantiomers in solution makes the separation of th
 
 ![Preferential Crystallisation](assets/PreferentialCrystallisation.png)
 
-Knowledge of the points of solubility, as a function of their temperature and composition, is essential to produce enantiopure products from a racemic compound. These experiments require extensive trial-and-error results that are both costly and time-consuming. The process is also solvent-solute specific, so the process needs to be repeated across any combination of components. To circumvent this requirement, we can develop a thermodynamic model in order to predict the possible solubility values. Solubility of a binary system can be predicted using the equations put forth by Schröder and van Laar [^12] . The ideal solubility of a compound (``x_i^{sat}``) in a solution can be calculated by knowing the compound’s calorimetric properties (``Δ_{fus}H_i, T_m``) and the activity coefficient (``\gamma_i^L``). This equation is simplified from the relationship between the activity coefficient and fugacity in the liquid phase. The calorimetric properties of a solute can be easily determined and used irregardless of the solvent.
+Knowledge of the points of solubility, as a function of their temperature and composition, is essential to produce enantiopure products from a racemic compound. These experiments require extensive trial-and-error results that are both costly and time-consuming. The process is also solvent-solute specific, so the process needs to be repeated across any combination of components. To circumvent this requirement, we can develop a thermodynamic model in order to predict the possible solubility values. 
+
+Solubility of a binary system can be predicted using the equations put forth by Schröder and van Laar [^12]. A pure solid can be heated until melting temperature has been achieved during constant pressure. At melting temperature the solid will enter the solid-liquid transition phase. The species can then be cooled carefully as a metastable fluid down to its original temperature.
+
+```math
+ln(\frac{f^S(Tm, P)}{f^S(T, P)}) &= - \int_{T}^{T_m} (\frac{H^S-H^{ig}}{RT^2})dT \tag{1} \\
+\\
+f^S(T_m, P) &= f^L (T_m, P) \tag{2} \\
+\\
+ln(\frac{f^L(T, P)}{f^L(T_m, P)}) &= - \int_{T}^{T_m} (\frac{H^L-H^{ig}}{RT^2})dT \tag{3} \\
+\\
+ln(\frac{f^L(T, P)}{f^S(T, P)}) &= -\int_{T}^{T_m} \frac{\Delta H_{melt}(T_m)+(T-T_m)\Delta C_p}{RT^2}dT \tag{4} \\
+\\
+\Delta H_{melt} &= H^L(T_m) - H^S(T_m) \tag{4a} \\
+\\
+H^L &= H^L(T_m) + C_p^L(T-T_m) \tag{4b} \\
+\\
+ln(\frac{f^L(T, P)}{f^S(T, P)}) &= \frac{\Delta H_{melt}}{R}(\frac{1}{T}-\frac{1}{T_m}) - \frac{T_m}{R}\Delta C_p (\frac{1}{T}-\frac{1}{T_m} - \frac{\Delta C_p}{R} ln (\frac {T}{T_m}) \tag{5} \\
+```
+
+Under the assumption that the chemical potential of any species in all phases can be assumed to be identical. This requires the assumption that the fugacity of a dissolved solute equals the fugacity of the undissolved species in the solid state. During ideal interactions, the mutual solubility of the liquid and solid phase is ignored. The heat capacity below the melting point cannot be experimentally calculated. Its shape is not clearly defined either, which means the value cannot be extrapolated \cite{m}. Approximations between the solid and liquid heat capacities have been developed, such as making the value equal at the temperature of fusion under the assumption of being temperature insensitive \cite{n}. In most cases, good results can be produced when neglecting the heat capacity contribution which leads to the simplified binary solubility equation.
+
+
+The ideal solubility of a compound (``x_i^{sat}``) in a solution can be calculated by knowing the compound’s calorimetric properties (``Δ_{fus}H_i, T_m``) and the activity coefficient (``\gamma_i^L``). The calorimetric properties of a solute can be easily determined and used irregardless of the solvent.
 
 ```math
 ln(x^{sat}_iγ^L_i) = \dfrac{Δ_{fus}H_i}{R}(\dfrac{1}{T_{m,i}} - \dfrac{1}{T})
