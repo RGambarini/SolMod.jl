@@ -15,10 +15,6 @@ SolMod.importSolubility
 SolMod.exportSolubility
 SolMod.importTernaryPhase
 SolMod.exportTernaryPhase
-SolMod.importExperimentalSolubility
-SolMod.exportExperimentalSolubility
-SolMod.importExperimentalTernaryPhase
-SolMod.exportExperimentalTernaryPhase
 SolMod.ternaryPhase
 SolMod.solubilityPoint
 SolMod.errorAnalysis
